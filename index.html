@@ -3,487 +3,399 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CUT 2026 — Piano Completo</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>WORKOUT PLAN 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0e0f11;
-    --surface: #16181c;
-    --surface2: #1e2128;
-    --border: #2a2d35;
-    --text: #e8eaf0;
-    --muted: #6b7280;
-    --green: #4ade80;
-    --green-dim: #166534;
-    --orange: #fb923c;
-    --orange-dim: #7c2d12;
-    --red: #f87171;
-    --red-dim: #7f1d1d;
-    --blue: #60a5fa;
-    --blue-dim: #1e3a5f;
-    --yellow: #facc15;
-    --purple: #c084fc;
-    --protein: #60a5fa;
-    --carbs: #fb923c;
-    --fat: #4ade80;
+    --glass:         rgba(255,255,255,0.07);
+    --glass-hover:   rgba(255,255,255,0.11);
+    --glass-border:  rgba(255,255,255,0.13);
+    --glass-shine:   rgba(255,255,255,0.17);
+    --text:   #f0f2f8;
+    --muted:  rgba(190,205,230,0.5);
+    --orange: #ff8c42;
+    --green:  #4ade80;
+    --red:    #ff6b6b;
+    --blue:   #60a5fa;
+    --yellow: #fbbf24;
+    --protein:#60a5fa;
+    --carbs:  #fb923c;
+    --fat:    #4ade80;
+    --blur:   blur(28px) saturate(180%);
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
-    background: var(--bg);
+    background: #07090f;
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden;
   }
 
-  /* HEADER */
-  .header {
-    padding: 48px 32px 32px;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
+  /* ── Aurora background ── */
+  body::before {
+    content:'';
+    position:fixed; inset:0; z-index:0;
+    background:
+      radial-gradient(ellipse 90% 55% at 15%  5%,  rgba(255,100,40,0.13)  0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 85% 18%,  rgba(96,165,250,0.10)  0%, transparent 65%),
+      radial-gradient(ellipse 70% 55% at 50% 88%,  rgba(74,222,128,0.08)  0%, transparent 65%),
+      radial-gradient(ellipse 55% 40% at 92% 72%,  rgba(192,132,252,0.07) 0%, transparent 65%);
+    pointer-events:none;
   }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 320px; height: 320px;
-    background: radial-gradient(circle, rgba(251,146,60,0.12) 0%, transparent 70%);
-    pointer-events: none;
+  body > * { position:relative; z-index:1; }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 56px 40px 36px;
   }
   .header-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    color: var(--orange);
-    text-transform: uppercase;
-    margin-bottom: 8px;
+    font-family:'DM Mono',monospace;
+    font-size:10px; letter-spacing:.2em;
+    color:var(--orange); text-transform:uppercase;
+    margin-bottom:10px; opacity:.85;
   }
   .header h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 8vw, 80px);
-    letter-spacing: 0.04em;
-    line-height: 1;
-    color: var(--text);
+    font-family:'Bebas Neue',sans-serif;
+    font-size: clamp(52px,9vw,92px);
+    letter-spacing:.04em; line-height:1;
+    color:var(--text);
+    text-shadow: 0 0 90px rgba(255,140,66,.28);
   }
-  .header h1 span { color: var(--orange); }
+  .header h1 span { color:var(--orange); }
+  .header-sub {
+    font-family:'DM Mono',monospace;
+    font-size:13px; color:var(--muted);
+    letter-spacing:.18em; margin-top:7px;
+    text-transform:uppercase;
+  }
 
-  .stats-row {
-    display: flex;
-    gap: 24px;
-    margin-top: 24px;
-    flex-wrap: wrap;
-  }
+  .stats-row { display:flex; gap:12px; margin-top:28px; flex-wrap:wrap; }
   .stat {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius:14px;
+    padding:12px 24px;
+    display:flex; flex-direction:column; gap:3px;
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 4px 18px rgba(0,0,0,.35);
+    transition: background .2s;
   }
-  .stat-label { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
-  .stat-value { font-family: 'DM Mono', monospace; font-size: 18px; font-weight: 500; color: var(--orange); }
+  .stat:hover { background:rgba(255,255,255,.10); }
+  .stat-label { font-size:9px; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; }
+  .stat-value { font-family:'DM Mono',monospace; font-size:20px; font-weight:500; color:var(--orange); }
 
-  /* TABS */
+  /* ── TABS ── */
+  .tabs-wrapper {
+    padding:12px 40px;
+    position:sticky; top:0; z-index:100;
+    background: linear-gradient(to bottom, rgba(7,9,15,.92), rgba(7,9,15,.72));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
   .tabs {
-    display: flex;
-    gap: 0;
-    padding: 0 32px;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: var(--bg);
-    z-index: 100;
+    display:inline-flex; gap:5px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius:16px; padding:5px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 4px 20px rgba(0,0,0,.4);
   }
   .tab {
-    padding: 16px 24px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    color: var(--muted);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    transition: all 0.2s;
-    user-select: none;
+    padding:9px 22px;
+    cursor:pointer;
+    color:var(--muted);
+    font-size:13px; font-weight:500; letter-spacing:.02em;
+    transition:all .2s;
+    user-select:none;
+    border-radius:12px;
+    white-space:nowrap;
+    border:1px solid transparent;
   }
-  .tab:hover { color: var(--text); }
-  .tab.active { color: var(--orange); border-bottom-color: var(--orange); }
-
-  /* MAIN */
-  .main { padding: 32px; max-width: 1200px; }
-
-  .section { display: none; }
-  .section.active { display: block; }
-
-  /* MACRO BANNER */
-  .macro-banner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .macro-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .macro-card.on { border-color: var(--green-dim); }
-  .macro-card.off { border-color: var(--orange-dim); }
-  .macro-card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-  }
-  .macro-card.on::after { background: var(--green); }
-  .macro-card.off::after { background: var(--orange); }
-  .macro-card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.05em;
-    margin-bottom: 4px;
-  }
-  .macro-card.on .macro-card-title { color: var(--green); }
-  .macro-card.off .macro-card-title { color: var(--orange); }
-  .macro-card-kcal {
-    font-family: 'DM Mono', monospace;
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 1;
-    margin-bottom: 16px;
-  }
-  .macro-pills {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .pill {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-  }
-  .pill.p { color: var(--protein); }
-  .pill.c { color: var(--carbs); }
-  .pill.g { color: var(--fat); }
-
-  /* MEALS GRID */
-  .day-toggle {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 24px;
-    align-items: center;
-  }
-  .toggle-btn {
-    padding: 8px 20px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    transition: all 0.2s;
-  }
-  .toggle-btn:hover { border-color: var(--text); color: var(--text); }
-  .toggle-btn.active-on { background: rgba(74,222,128,0.1); border-color: var(--green); color: var(--green); }
-  .toggle-btn.active-off { background: rgba(251,146,60,0.1); border-color: var(--orange); color: var(--orange); }
-
-  .meals-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 16px;
+  .tab:hover { color:var(--text); background:rgba(255,255,255,.06); }
+  .tab.active {
+    color:var(--text);
+    background:rgba(255,255,255,.12);
+    border-color:rgba(255,255,255,.15);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 2px 10px rgba(0,0,0,.35);
   }
 
-  .meal-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: border-color 0.2s;
-  }
-  .meal-card:hover { border-color: #3a3d45; }
-
-  .meal-header {
-    padding: 14px 18px;
-    background: var(--surface2);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-  }
-  .meal-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    letter-spacing: 0.06em;
-    color: var(--text);
-  }
-  .meal-kcal {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--yellow);
-    background: rgba(250,204,21,0.08);
-    border: 1px solid rgba(250,204,21,0.2);
-    border-radius: 4px;
-    padding: 2px 8px;
-  }
-
-  .meal-macros {
-    display: flex;
-    padding: 10px 18px;
-    gap: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .macro-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-  }
-  .macro-badge span:first-child { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
-  .macro-badge.p span:last-child { color: var(--protein); }
-  .macro-badge.c span:last-child { color: var(--carbs); }
-  .macro-badge.g span:last-child { color: var(--fat); }
-
-  .meal-bar {
-    height: 3px;
-    display: flex;
-    margin: 0 18px 0;
-  }
-  .bar-p, .bar-c, .bar-g { height: 100%; transition: width 0.4s; }
-  .bar-p { background: var(--protein); }
-  .bar-c { background: var(--carbs); }
-  .bar-g { background: var(--fat); }
-
-  .meal-foods {
-    padding: 12px 18px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .food-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 8px;
-  }
-  .food-name { color: var(--text); font-size: 13px; }
-  .food-qty {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-  .food-qty.changed-off { color: var(--orange); }
-  .food-qty.removed { color: var(--red); text-decoration: line-through; opacity: 0.7; }
-  .food-note {
-    font-size: 11px;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 2px;
-  }
-
-  /* WORKOUT */
-  .workout-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-  }
-
-  .day-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .day-header {
-    padding: 14px 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .day-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.06em;
-  }
-  .day-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    padding: 3px 8px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-  .day-card.upper .day-header { border-bottom: 2px solid #ef4444; }
-  .day-card.upper .day-title { color: #f87171; }
-  .day-card.upper .day-tag { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
-
-  .day-card.lower .day-header { border-bottom: 2px solid #22c55e; }
-  .day-card.lower .day-title { color: #4ade80; }
-  .day-card.lower .day-tag { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
-
-  .day-card.push .day-header { border-bottom: 2px solid #f97316; }
-  .day-card.push .day-title { color: #fb923c; }
-  .day-card.push .day-tag { background: rgba(249,115,22,0.1); color: #fb923c; border: 1px solid rgba(249,115,22,0.3); }
-
-  .day-card.pull .day-header { border-bottom: 2px solid #3b82f6; }
-  .day-card.pull .day-title { color: #60a5fa; }
-  .day-card.pull .day-tag { background: rgba(59,130,246,0.1); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
-
-  .exercise-list { padding: 12px 0 16px; }
-  .exercise-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 18px;
-    gap: 12px;
-    transition: background 0.15s;
-  }
-  .exercise-row:hover { background: var(--surface2); }
-  .exercise-row.added { background: rgba(74,222,128,0.05); }
-  .exercise-row.modified { background: rgba(251,146,60,0.05); }
-
-  .ex-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    min-width: 16px;
-  }
-  .ex-name { font-size: 13px; flex: 1; color: var(--text); }
-  .ex-sets {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-  .badge-new {
-    font-size: 9px;
-    background: rgba(74,222,128,0.15);
-    color: var(--green);
-    border: 1px solid rgba(74,222,128,0.3);
-    border-radius: 3px;
-    padding: 1px 5px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .badge-mod {
-    font-size: 9px;
-    background: rgba(251,146,60,0.15);
-    color: var(--orange);
-    border: 1px solid rgba(251,146,60,0.3);
-    border-radius: 3px;
-    padding: 1px 5px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  /* RULES */
-  .rules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 12px;
-    margin-top: 24px;
-  }
-  .rule-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 18px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
-  .rule-icon { font-size: 18px; line-height: 1.4; flex-shrink: 0; }
-  .rule-text { font-size: 13px; color: var(--text); line-height: 1.5; }
-  .rule-text strong { color: var(--orange); display: block; margin-bottom: 2px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
-
-  /* SUMMARY TABLE */
-  .summary-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 24px;
-  }
-  .summary-table th {
-    text-align: left;
-    padding: 10px 16px;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    border-bottom: 1px solid var(--border);
-    font-weight: 500;
-  }
-  .summary-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 13px;
-  }
-  .summary-table tr:last-child td { border-bottom: none; }
-  .summary-table tr:hover td { background: var(--surface); }
-  .summary-table .total-row td {
-    font-weight: 600;
-    background: var(--surface2);
-    font-family: 'DM Mono', monospace;
-    font-size: 14px;
-  }
+  /* ── MAIN ── */
+  .main { padding:28px 40px 56px; max-width:1200px; }
+  .section { display:none; }
+  .section.active { display:block; }
 
   .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 0.05em;
-    color: var(--text);
-    margin-bottom: 8px;
-    margin-top: 32px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:26px; letter-spacing:.06em;
+    color:var(--text); margin-bottom:6px; margin-top:32px;
   }
-  .section-title:first-child { margin-top: 0; }
-  .section-sub { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  .section-title:first-child { margin-top:0; }
+  .section-sub { color:var(--muted); font-size:12px; margin-bottom:20px; letter-spacing:.03em; }
 
-  @media (max-width: 700px) {
-    .header, .main { padding: 20px 16px; }
-    .tabs { padding: 0 16px; }
-    .macro-banner { grid-template-columns: 1fr; }
-    .tab { padding: 12px 14px; font-size: 12px; }
+  /* ── MACRO BANNER ── */
+  .macro-banner {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:14px; margin-bottom:28px;
+  }
+  .macro-card {
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border-radius:22px;
+    padding:24px 28px;
+    position:relative; overflow:hidden;
+    transition:transform .2s;
+    box-shadow: 0 8px 36px rgba(0,0,0,.35), inset 0 1px 0 var(--glass-shine);
+  }
+  .macro-card:hover { transform:translateY(-2px); }
+  .macro-card.on  { background:rgba(74,222,128,.05);  border:1px solid rgba(74,222,128,.25); }
+  .macro-card.off { background:rgba(255,140,66,.05);  border:1px solid rgba(255,140,66,.25); }
+  .macro-card::before {
+    content:''; position:absolute;
+    top:0; left:0; right:0; height:2px;
+    border-radius:22px 22px 0 0;
+  }
+  .macro-card.on::before  { background:linear-gradient(90deg, var(--green),  transparent); }
+  .macro-card.off::before { background:linear-gradient(90deg, var(--orange), transparent); }
+  .macro-card-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:20px; letter-spacing:.07em; margin-bottom:4px;
+  }
+  .macro-card.on  .macro-card-title { color:var(--green);  }
+  .macro-card.off .macro-card-title { color:var(--orange); }
+  .macro-card-kcal {
+    font-family:'DM Mono',monospace;
+    font-size:36px; font-weight:500; line-height:1; margin-bottom:18px;
+  }
+  .macro-pills { display:flex; gap:8px; flex-wrap:wrap; }
+  .pill {
+    border-radius:30px; padding:4px 14px;
+    font-family:'DM Mono',monospace; font-size:12px;
+    backdrop-filter:blur(8px);
+  }
+  .pill.p { color:var(--protein); border:1px solid rgba(96,165,250,.22); background:rgba(96,165,250,.09); }
+  .pill.c { color:var(--carbs);   border:1px solid rgba(251,146,60,.22); background:rgba(251,146,60,.09); }
+  .pill.g { color:var(--fat);     border:1px solid rgba(74,222,128,.22); background:rgba(74,222,128,.09); }
+
+  /* ── DAY TOGGLE ── */
+  .day-toggle { display:flex; gap:8px; margin-bottom:22px; align-items:center; }
+  .toggle-btn {
+    padding:8px 22px; border-radius:10px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.05);
+    color:var(--muted); cursor:pointer;
+    font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500;
+    transition:all .2s;
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  }
+  .toggle-btn:hover { background:rgba(255,255,255,.10); color:var(--text); }
+  .toggle-btn.active-on {
+    background:rgba(74,222,128,.12); border-color:rgba(74,222,128,.38);
+    color:var(--green);
+    box-shadow:0 0 22px rgba(74,222,128,.15), inset 0 1px 0 rgba(74,222,128,.2);
+  }
+  .toggle-btn.active-off {
+    background:rgba(255,140,66,.12); border-color:rgba(255,140,66,.38);
+    color:var(--orange);
+    box-shadow:0 0 22px rgba(255,140,66,.15), inset 0 1px 0 rgba(255,140,66,.2);
+  }
+
+  /* ── MEALS ── */
+  .meals-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(295px, 1fr));
+    gap:14px;
+  }
+  .meal-card {
+    background:var(--glass);
+    backdrop-filter:var(--blur); -webkit-backdrop-filter:var(--blur);
+    border:1px solid var(--glass-border);
+    border-radius:20px; overflow:hidden;
+    transition:all .2s;
+    box-shadow:0 4px 28px rgba(0,0,0,.3), inset 0 1px 0 var(--glass-shine);
+  }
+  .meal-card:hover {
+    border-color:rgba(255,255,255,.22);
+    transform:translateY(-2px);
+    box-shadow:0 10px 36px rgba(0,0,0,.42), inset 0 1px 0 var(--glass-shine);
+  }
+  .meal-header {
+    padding:14px 18px;
+    display:flex; justify-content:space-between; align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    background:rgba(255,255,255,.03);
+  }
+  .meal-name { font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:.06em; color:var(--text); }
+  .meal-kcal {
+    font-family:'DM Mono',monospace; font-size:12px; color:var(--yellow);
+    background:rgba(251,191,36,.10); border:1px solid rgba(251,191,36,.22);
+    border-radius:8px; padding:3px 10px;
+  }
+  .meal-macros {
+    display:flex; padding:10px 18px; gap:14px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+  }
+  .macro-badge { font-family:'DM Mono',monospace; font-size:12px; display:flex; flex-direction:column; align-items:center; gap:2px; }
+  .macro-badge span:first-child { color:var(--muted); font-size:9px; text-transform:uppercase; letter-spacing:.1em; }
+  .macro-badge.p span:last-child { color:var(--protein); }
+  .macro-badge.c span:last-child { color:var(--carbs); }
+  .macro-badge.g span:last-child { color:var(--fat); }
+
+  .meal-bar { height:3px; display:flex; margin:0 18px; border-radius:3px; overflow:hidden; }
+  .bar-p { background:var(--protein); height:100%; }
+  .bar-c { background:var(--carbs);   height:100%; }
+  .bar-g { background:var(--fat);     height:100%; }
+
+  .meal-foods { padding:12px 18px 16px; display:flex; flex-direction:column; gap:7px; }
+  .food-row   { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .food-name  { color:var(--text); font-size:13px; }
+  .food-qty   { font-family:'DM Mono',monospace; font-size:12px; color:var(--muted); white-space:nowrap; }
+  .food-qty.changed-off { color:var(--orange); }
+  .food-name.removed-food { color:var(--red) !important; text-decoration:line-through; opacity:.6; }
+  .food-note  { font-size:11px; color:var(--muted); font-style:italic; margin-top:1px; }
+
+  /* ── WORKOUT ── */
+  .workout-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(265px, 1fr));
+    gap:14px;
+  }
+  .day-card {
+    background:var(--glass);
+    backdrop-filter:var(--blur); -webkit-backdrop-filter:var(--blur);
+    border:1px solid var(--glass-border);
+    border-radius:22px; overflow:hidden;
+    transition:all .2s;
+    box-shadow:0 4px 28px rgba(0,0,0,.3), inset 0 1px 0 var(--glass-shine);
+  }
+  .day-card:hover { transform:translateY(-2px); box-shadow:0 10px 36px rgba(0,0,0,.42), inset 0 1px 0 var(--glass-shine); }
+
+  .day-header {
+    padding:16px 20px;
+    display:flex; justify-content:space-between; align-items:center;
+    background:rgba(255,255,255,.03);
+  }
+  .day-title  { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:.06em; }
+  .day-tag    { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em; padding:3px 10px; border-radius:8px; text-transform:uppercase; }
+
+  .day-card.upper .day-header { border-bottom:1px solid rgba(255,123,123,.3); }
+  .day-card.upper .day-title  { color:#ff7b7b; }
+  .day-card.upper .day-tag    { background:rgba(239,68,68,.12); color:#ff7b7b; border:1px solid rgba(239,68,68,.25); }
+
+  .day-card.lower .day-header { border-bottom:1px solid rgba(74,222,128,.3); }
+  .day-card.lower .day-title  { color:var(--green); }
+  .day-card.lower .day-tag    { background:rgba(74,222,128,.12); color:var(--green); border:1px solid rgba(74,222,128,.25); }
+
+  .day-card.push .day-header  { border-bottom:1px solid rgba(255,140,66,.3); }
+  .day-card.push .day-title   { color:var(--orange); }
+  .day-card.push .day-tag     { background:rgba(255,140,66,.12); color:var(--orange); border:1px solid rgba(255,140,66,.25); }
+
+  .day-card.pull .day-header  { border-bottom:1px solid rgba(96,165,250,.3); }
+  .day-card.pull .day-title   { color:var(--blue); }
+  .day-card.pull .day-tag     { background:rgba(96,165,250,.12); color:var(--blue); border:1px solid rgba(96,165,250,.25); }
+
+  .exercise-list { padding:10px 0 14px; }
+  .exercise-row {
+    display:flex; align-items:center;
+    padding:8px 14px; gap:12px;
+    border-radius:10px; margin:2px 8px;
+    transition:background .15s;
+  }
+  .exercise-row:hover { background:rgba(255,255,255,.055); }
+  .ex-num  { font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); min-width:16px; opacity:.65; }
+  .ex-name { font-size:13px; flex:1; color:var(--text); }
+  .ex-sets { font-family:'DM Mono',monospace; font-size:12px; color:var(--muted); white-space:nowrap; }
+
+  /* ── RULES ── */
+  .rules-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(255px, 1fr));
+    gap:12px; margin-top:20px;
+  }
+  .rule-card {
+    background:var(--glass);
+    backdrop-filter:var(--blur); -webkit-backdrop-filter:var(--blur);
+    border:1px solid var(--glass-border);
+    border-radius:18px; padding:16px 18px;
+    display:flex; gap:12px; align-items:flex-start;
+    box-shadow:0 4px 18px rgba(0,0,0,.2), inset 0 1px 0 var(--glass-shine);
+    transition:all .2s;
+  }
+  .rule-card:hover { transform:translateY(-1px); background:rgba(255,255,255,.09); }
+  .rule-icon { font-size:18px; line-height:1.4; flex-shrink:0; }
+  .rule-text { font-size:13px; color:var(--text); line-height:1.5; }
+  .rule-text strong {
+    color:var(--orange); display:block; margin-bottom:2px;
+    font-size:11px; text-transform:uppercase; letter-spacing:.06em;
+  }
+
+  /* ── SUMMARY TABLE ── */
+  .summary-table {
+    width:100%; border-collapse:collapse; margin-top:20px;
+    background:var(--glass);
+    backdrop-filter:var(--blur); -webkit-backdrop-filter:var(--blur);
+    border-radius:20px; overflow:hidden;
+    border:1px solid var(--glass-border);
+    box-shadow:0 8px 36px rgba(0,0,0,.3), inset 0 1px 0 var(--glass-shine);
+  }
+  .summary-table th {
+    text-align:left; padding:13px 18px;
+    font-size:9px; text-transform:uppercase; letter-spacing:.13em;
+    color:var(--muted); border-bottom:1px solid rgba(255,255,255,.07);
+    font-weight:500; background:rgba(255,255,255,.03);
+  }
+  .summary-table td {
+    padding:13px 18px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    font-size:13px;
+  }
+  .summary-table tr:last-child td { border-bottom:none; }
+  .summary-table tr:hover td { background:rgba(255,255,255,.04); }
+  .summary-table .total-row td {
+    font-weight:600;
+    background:rgba(255,255,255,.05);
+    font-family:'DM Mono',monospace; font-size:14px;
+    border-top:1px solid rgba(255,255,255,.1);
+  }
+
+  @media (max-width:700px) {
+    .header, .main { padding:20px 18px; }
+    .tabs-wrapper   { padding:10px 18px; }
+    .macro-banner   { grid-template-columns:1fr; }
+    .tab            { padding:8px 14px; font-size:12px; }
   }
 </style>
 </head>
 <body>
 
+<!-- ════════════ HEADER ════════════ -->
 <div class="header">
   <div class="header-label">Programmazione personalizzata</div>
-  <h1>CUT <span>2026</span></h1>
+  <h1>WORKOUT PLAN <span>2026</span></h1>
+  <div class="header-sub">APR / AUG CUT</div>
   <div class="stats-row">
     <div class="stat"><span class="stat-label">Peso</span><span class="stat-value">95 kg</span></div>
     <div class="stat"><span class="stat-label">Altezza</span><span class="stat-value">1.87 m</span></div>
-    <div class="stat"><span class="stat-label">Panca</span><span class="stat-value">100 kg</span></div>
-    <div class="stat"><span class="stat-label">Stacco</span><span class="stat-value">170 kg</span></div>
-    <div class="stat"><span class="stat-label">Squat</span><span class="stat-value">120 kg</span></div>
-    <div class="stat"><span class="stat-label">RDL</span><span class="stat-value">130 kg</span></div>
   </div>
 </div>
 
-<div class="tabs">
-  <div class="tab active" onclick="switchTab('diet')">🍽 Dieta</div>
-  <div class="tab" onclick="switchTab('workout')">🏋 Workout</div>
-  <div class="tab" onclick="switchTab('summary')">📊 Riepilogo</div>
+<!-- ════════════ TABS ════════════ -->
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('diet', this)">🍽 Dieta</div>
+    <div class="tab"        onclick="switchTab('workout', this)">🏋 Workout</div>
+    <div class="tab"        onclick="switchTab('summary', this)">📊 Riepilogo</div>
+  </div>
 </div>
 
 <div class="main">
 
-  <!-- ============ DIET SECTION ============ -->
+  <!-- ════════════ DIET ════════════ -->
   <div id="diet" class="section active">
 
     <div class="macro-banner">
@@ -510,7 +422,7 @@
     <div class="day-toggle">
       <span style="color:var(--muted);font-size:12px;margin-right:4px">Visualizza:</span>
       <button class="toggle-btn active-on" onclick="showDay('on', this)">Giorno ON</button>
-      <button class="toggle-btn" onclick="showDay('off', this)">Giorno OFF</button>
+      <button class="toggle-btn"           onclick="showDay('off', this)">Giorno OFF</button>
     </div>
 
     <!-- ON MEALS -->
@@ -533,9 +445,13 @@
         </div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Avena</span><span class="food-qty">80g</span></div>
+          <div class="food-note">alt: fiocchi di riso 80g · orzo soffiato 85g</div>
           <div class="food-row"><span class="food-name">Yogurt greco 0%</span><span class="food-qty">250g</span></div>
+          <div class="food-note">alt: skyr 250g</div>
           <div class="food-row"><span class="food-name">Fragole</span><span class="food-qty">100g</span></div>
+          <div class="food-note">alt: mirtilli 100g · lamponi 120g · frutti di bosco 100g</div>
           <div class="food-row"><span class="food-name">Burro d'arachidi</span><span class="food-qty">20g</span></div>
+          <div class="food-note">alt: mandorle 18g · noci 20g</div>
         </div>
       </div>
 
@@ -556,7 +472,9 @@
         </div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Fiocchi di latte</span><span class="food-qty">250g</span></div>
+          <div class="food-note">alt: skyr 250g · yogurt greco 0% 250g</div>
           <div class="food-row"><span class="food-name">Mela</span><span class="food-qty">180g</span></div>
+          <div class="food-note">alt: pera 180g · arancia 200g · kiwi 2 pz</div>
         </div>
       </div>
 
@@ -579,7 +497,7 @@
           <div class="food-row"><span class="food-name">Riso (crudo)</span><span class="food-qty">100g</span></div>
           <div class="food-note">alt: pasta 100g · gnocchi 200g</div>
           <div class="food-row"><span class="food-name">Petto di pollo</span><span class="food-qty">180g</span></div>
-          <div class="food-note">alt: tonno 160g (2 scatolette)</div>
+          <div class="food-note">alt: tonno 160g · merluzzo 200g · gamberi 220g</div>
           <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">12g</span></div>
           <div class="food-row"><span class="food-name">Verdura mista</span><span class="food-qty">libera</span></div>
         </div>
@@ -602,8 +520,11 @@
         </div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Pane integrale</span><span class="food-qty">80g</span></div>
+          <div class="food-note">alt: crackers integrali 45g · riso soffiato 50g</div>
           <div class="food-row"><span class="food-name">Whey protein</span><span class="food-qty">30g</span></div>
+          <div class="food-note">alt: albumi 200g</div>
           <div class="food-row"><span class="food-name">Banana</span><span class="food-qty">100g</span></div>
+          <div class="food-note">alt: datteri 35g · marmellata 30g · miele 20g</div>
           <div class="food-row"><span class="food-name">Creatina</span><span class="food-qty">5g</span></div>
         </div>
       </div>
@@ -625,8 +546,9 @@
         </div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Manzo magro</span><span class="food-qty">220g</span></div>
-          <div class="food-note">alt: petto pollo 220g · salmone 200g</div>
+          <div class="food-note">alt: petto pollo 220g · salmone 200g · tacchino 240g</div>
           <div class="food-row"><span class="food-name">Patate (al forno)</span><span class="food-qty">250g</span></div>
+          <div class="food-note">alt: pane integrale 80g · riso crudo 55g · pasta cruda 55g</div>
           <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">12g</span></div>
           <div class="food-row"><span class="food-name">Verdura</span><span class="food-qty">libera</span></div>
         </div>
@@ -654,9 +576,13 @@
         </div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Avena</span><span class="food-qty changed-off">70g (−10g)</span></div>
+          <div class="food-note">alt: fiocchi di riso 70g · orzo soffiato 75g</div>
           <div class="food-row"><span class="food-name">Yogurt greco 0%</span><span class="food-qty">250g</span></div>
+          <div class="food-note">alt: skyr 250g</div>
           <div class="food-row"><span class="food-name">Fragole</span><span class="food-qty">100g</span></div>
+          <div class="food-note">alt: mirtilli 100g · lamponi 120g · frutti di bosco 100g</div>
           <div class="food-row"><span class="food-name">Burro d'arachidi</span><span class="food-qty">20g</span></div>
+          <div class="food-note">alt: mandorle 18g · noci 20g</div>
         </div>
       </div>
 
@@ -677,7 +603,8 @@
         </div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Fiocchi di latte</span><span class="food-qty">250g</span></div>
-          <div class="food-row"><span class="food-name removed-food" style="color:var(--red);opacity:0.6;text-decoration:line-through">Mela</span><span class="food-qty removed" style="color:var(--red)">rimossa</span></div>
+          <div class="food-note">alt: skyr 250g · yogurt greco 0% 250g</div>
+          <div class="food-row"><span class="food-name removed-food">Mela</span></div>
         </div>
       </div>
 
@@ -700,6 +627,7 @@
           <div class="food-row"><span class="food-name">Riso (crudo)</span><span class="food-qty changed-off">80g (−20g)</span></div>
           <div class="food-note">alt: pasta 80g · gnocchi 160g</div>
           <div class="food-row"><span class="food-name">Petto di pollo</span><span class="food-qty">180g</span></div>
+          <div class="food-note">alt: tonno 160g · merluzzo 200g · gamberi 220g</div>
           <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">12g</span></div>
           <div class="food-row"><span class="food-name">Verdura mista</span><span class="food-qty">libera</span></div>
         </div>
@@ -721,10 +649,12 @@
           <div class="bar-g" style="width:5%"></div>
         </div>
         <div class="meal-foods">
-          <div class="food-row"><span class="food-name removed-food" style="color:var(--red);opacity:0.6;text-decoration:line-through">Pane integrale</span><span class="food-qty removed" style="color:var(--red)">rimosso</span></div>
+          <div class="food-row"><span class="food-name removed-food">Pane integrale</span></div>
           <div class="food-row"><span class="food-name">Whey protein</span><span class="food-qty">30g</span></div>
-          <div class="food-row"><span class="food-name removed-food" style="color:var(--red);opacity:0.6;text-decoration:line-through">Banana</span><span class="food-qty removed" style="color:var(--red)">rimossa</span></div>
+          <div class="food-note">alt: albumi 180g · uova intere 2 + albume 1</div>
+          <div class="food-row"><span class="food-name removed-food">Banana</span></div>
           <div class="food-row"><span class="food-name">Crackers integrali</span><span class="food-qty changed-off">30g</span></div>
+          <div class="food-note">alt: riso soffiato 25g · gallette di riso 3 pz</div>
           <div class="food-row"><span class="food-name">Creatina</span><span class="food-qty">5g</span></div>
         </div>
       </div>
@@ -746,7 +676,9 @@
         </div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Manzo magro</span><span class="food-qty">220g</span></div>
+          <div class="food-note">alt: petto pollo 220g · salmone 200g · tacchino 240g</div>
           <div class="food-row"><span class="food-name">Patate (al forno)</span><span class="food-qty changed-off">200g (−50g)</span></div>
+          <div class="food-note">alt: pane integrale 65g · riso crudo 45g · pasta cruda 45g</div>
           <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">12g</span></div>
           <div class="food-row"><span class="food-name">Verdura</span><span class="food-qty">libera</span></div>
         </div>
@@ -755,10 +687,10 @@
     </div>
   </div>
 
-  <!-- ============ WORKOUT SECTION ============ -->
+  <!-- ════════════ WORKOUT ════════════ -->
   <div id="workout" class="section">
     <div class="section-title">Split 4 Giorni</div>
-    <div class="section-sub">Upper · Lower · Push · Pull — con correzioni applicate</div>
+    <div class="section-sub">Upper · Lower · Push · Pull</div>
 
     <div class="workout-grid">
 
@@ -784,11 +716,8 @@
           <div class="exercise-row">
             <span class="ex-num">05</span><span class="ex-name">Alzate laterali</span><span class="ex-sets">3 × 12–15</span>
           </div>
-          <div class="exercise-row modified">
-            <span class="ex-num">06</span><span class="ex-name">Curl bilanciere</span><span class="ex-sets">3 × 8–10</span><span class="badge-mod">−1 es.</span>
-          </div>
-          <div style="padding: 8px 18px 0;">
-            <span style="font-size:11px;color:var(--muted)">⚠ Pushdown spostato al Day 3 (tricipiti già travolti da panca+dip)</span>
+          <div class="exercise-row">
+            <span class="ex-num">06</span><span class="ex-name">Curl bilanciere</span><span class="ex-sets">3 × 8–10</span>
           </div>
         </div>
       </div>
@@ -800,14 +729,14 @@
           <span class="day-tag">Forza</span>
         </div>
         <div class="exercise-list">
-          <div class="exercise-row added">
-            <span class="ex-num">01</span><span class="ex-name">Stacco da terra</span><span class="ex-sets">3 × 4–5</span><span class="badge-new">aggiunto</span>
+          <div class="exercise-row">
+            <span class="ex-num">01</span><span class="ex-name">Stacco da terra</span><span class="ex-sets">3 × 4–5</span>
           </div>
           <div class="exercise-row">
             <span class="ex-num">02</span><span class="ex-name">Squat</span><span class="ex-sets">3 × 5–6</span>
           </div>
-          <div class="exercise-row modified">
-            <span class="ex-num">03</span><span class="ex-name">RDL</span><span class="ex-sets">2 × 8</span><span class="badge-mod">2→2 serie</span>
+          <div class="exercise-row">
+            <span class="ex-num">03</span><span class="ex-name">RDL</span><span class="ex-sets">2 × 8</span>
           </div>
           <div class="exercise-row">
             <span class="ex-num">04</span><span class="ex-name">Leg press</span><span class="ex-sets">3 × 10</span>
@@ -820,9 +749,6 @@
           </div>
           <div class="exercise-row">
             <span class="ex-num">07</span><span class="ex-name">Addome</span><span class="ex-sets">3 serie</span>
-          </div>
-          <div style="padding: 8px 18px 0;">
-            <span style="font-size:11px;color:var(--green)">✅ Stacco reintrodotto: non eliminare il tuo movimento più forte in cut</span>
           </div>
         </div>
       </div>
@@ -852,8 +778,8 @@
           <div class="exercise-row">
             <span class="ex-num">06</span><span class="ex-name">French press</span><span class="ex-sets">3 × 10–12</span>
           </div>
-          <div class="exercise-row added">
-            <span class="ex-num">07</span><span class="ex-name">Pushdown tricipiti</span><span class="ex-sets">3 × 10–12</span><span class="badge-new">spostato</span>
+          <div class="exercise-row">
+            <span class="ex-num">07</span><span class="ex-name">Pushdown tricipiti</span><span class="ex-sets">3 × 10–12</span>
           </div>
         </div>
       </div>
@@ -888,8 +814,7 @@
 
     </div>
 
-    <!-- RULES -->
-    <div class="section-title" style="margin-top:32px">Regole Fondamentali</div>
+    <div class="section-title" style="margin-top:36px">Regole Fondamentali</div>
     <div class="rules-grid">
       <div class="rule-card">
         <span class="rule-icon">💪</span>
@@ -897,7 +822,7 @@
       </div>
       <div class="rule-card">
         <span class="rule-icon">🎯</span>
-        <span class="rule-text"><strong>RIR 1–2</strong>Mai cedimento sistematico. In deficit calorico il recupero è rallentato: RIR 1–2 ti permette di allenarsi ad alta intensità senza sovraccarico CNS.</span>
+        <span class="rule-text"><strong>RIR 1–2</strong>Mai cedimento sistematico. In deficit calorico il recupero è rallentato: RIR 1–2 ti permette di allenarti ad alta intensità senza sovraccarico CNS.</span>
       </div>
       <div class="rule-card">
         <span class="rule-icon">📈</span>
@@ -918,7 +843,7 @@
     </div>
   </div>
 
-  <!-- ============ SUMMARY SECTION ============ -->
+  <!-- ════════════ SUMMARY ════════════ -->
   <div id="summary" class="section">
     <div class="section-title">Riepilogo Macro Giornalieri</div>
 
@@ -1009,23 +934,21 @@
 </div>
 
 <script>
-  function switchTab(tab) {
+  function switchTab(tab, el) {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(tab).classList.add('active');
-    event.target.classList.add('active');
+    el.classList.add('active');
   }
 
   function showDay(day, btn) {
-    document.querySelectorAll('.toggle-btn').forEach(b => {
-      b.classList.remove('active-on', 'active-off');
-    });
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active-on','active-off'));
     if (day === 'on') {
-      document.getElementById('meals-on').style.display = 'grid';
+      document.getElementById('meals-on').style.display  = 'grid';
       document.getElementById('meals-off').style.display = 'none';
       btn.classList.add('active-on');
     } else {
-      document.getElementById('meals-on').style.display = 'none';
+      document.getElementById('meals-on').style.display  = 'none';
       document.getElementById('meals-off').style.display = 'grid';
       btn.classList.add('active-off');
     }
