@@ -159,6 +159,9 @@
   .day-card.lower{border-top:2px solid rgba(74,222,128,.5);}
   .day-card.lower .day-title{color:var(--green);}
   .day-card.lower .day-tag{background:rgba(74,222,128,.12);color:var(--green);border:1px solid rgba(74,222,128,.25);}
+  .day-card.arms{border-top:2px solid rgba(192,132,252,.5);}
+  .day-card.arms .day-title{color:var(--purple);}
+  .day-card.arms .day-tag{background:rgba(192,132,252,.12);color:var(--purple);border:1px solid rgba(192,132,252,.25);}
   .ex-head{display:grid;grid-template-columns:18px 1fr auto auto;gap:10px;padding:8px 18px 4px;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
   .ex-head span:nth-child(3),.ex-head span:nth-child(4){text-align:right;}
   .exercise-list{padding:2px 0 14px;}
@@ -313,6 +316,7 @@
           <div class="food-row"><span class="food-name">Caffè</span><span class="food-qty">×2</span></div>
         </div>
         <div class="meal-prep"><b>0 min</b> · Tutto portatile, zero preparazione in ufficio.</div>
+        <div class="meal-prep" style="background:rgba(255,140,66,.06);border-color:rgba(255,140,66,.18)"><b style="color:var(--orange)">Niente fiocchi di latte?</b> Sostituisci i 200 g (~26 g proteine) con:<br>· <b style="color:var(--text)">Skyr / yogurt greco 200 g</b> <span style="color:var(--muted)">(il più simile)</span> · <b style="color:var(--text)">Tonno 120 g</b>, <b style="color:var(--text)">bresaola 70 g</b> o <b style="color:var(--text)">prosciutto cotto ~120 g</b> <span style="color:var(--muted)">(salato — il cotto è un filo più grasso e salato, ottimo come rotazione non come fisso)</span> · <b style="color:var(--text)">shaker whey 30 g</b><br>· <b style="color:var(--text)">Uova 3</b> <span style="color:var(--muted)">vanno bene ma più grasse e meno proteiche — aggiungi 2 albumi per pareggiare.</span> Vale anche per lo spuntino OFF.</div>
       </div>
 
       <div class="meal-card">
@@ -326,6 +330,7 @@
           <div class="food-row"><span class="food-name">Verdure</span><span class="food-qty">≥150 g</span></div>
         </div>
         <div class="meal-prep"><b>Prep la sera prima</b> · Vedi sezione "Costruisci il piatto" per cambiare proteina e carbo ogni giorno.</div>
+        <div class="meal-prep" style="background:rgba(255,140,66,.06);border-color:rgba(255,140,66,.18)"><b style="color:var(--orange)">Hai salmone affumicato e gnocchi?</b> Salmone affumicato 180 g + gnocchi 250 g + verdure ≥150 g, senza olio aggiunto <span style="color:var(--muted)">(~610 kcal · P46 · C83 · F11)</span>. Più carbo e un filo meno proteine del pollo+riso: ok per un pasto. Occasionale, non fisso — il salmone affumicato è molto salato (ritenzione idrica → falso peso il giorno dopo). Giorno OFF: 200 g gnocchi + 160 g salmone.</div>
       </div>
 
       <div class="meal-card">
@@ -483,8 +488,8 @@
 
   <!-- ===================== WORKOUT ===================== -->
   <div id="workout" class="section">
-    <div class="section-title">Split 4 Giorni · Upper / Lower ×2</div>
-    <div class="section-sub">Ogni gruppo muscolare 2×/settimana — a parità di volume la doppia frequenza batte la singola per ipertrofia e ritenzione (Schoenfeld 2016). Serie dritte, RIR 1-2, eccentrica 2-3 sec. <b style="color:var(--orange)">Petto = priorità</b>: 2 esercizi su ogni Upper, ~14 serie/sett. Ogni giorno ha un focus: <b style="color:var(--text)">Upper A petto+dorso</b>, <b style="color:var(--text)">Upper B petto+spalle</b>. Tricipiti il Day 1, bicipiti il Day 3.</div>
+    <div class="section-title">Split 4 Giorni (+1 opzionale) · Upper / Lower ×2</div>
+    <div class="section-sub">Ogni gruppo muscolare 2×/settimana — a parità di volume la doppia frequenza batte la singola per ipertrofia e ritenzione (Schoenfeld 2016). Serie dritte, RIR 1-2, eccentrica 2-3 sec. <b style="color:var(--orange)">Petto = priorità</b>: 2 esercizi su ogni Upper, ~14 serie/sett. Ogni giorno ha un focus: <b style="color:var(--text)">Upper A petto+dorso</b>, <b style="color:var(--text)">Upper B petto+spalle</b>. <b style="color:var(--text)">Braccia 2×</b>: bicipiti su entrambe le Upper (EZ il Day 1, manubri il Day 3), tricipiti tra push-down (Day 1) e dip (Day 3).</div>
 
     <div class="workout-grid">
 
@@ -497,7 +502,8 @@
           <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Chest press / Croci ai cavi<span class="ex-aim">petto · 2° esercizio</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">90″</span></div>
           <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Lat machine / Trazioni<span class="ex-aim">dorso · ampiezza</span></span><span class="ex-sets">3×8–10</span><span class="ex-rest">2′</span></div>
           <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Push-down tricipiti<span class="ex-aim">tricipiti · diretto</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">75″</span></div>
-          <div class="exercise-row"><span class="ex-num">6</span><span class="ex-name">Alzate laterali<span class="ex-aim">spalle · mantenimento</span></span><span class="ex-sets">3×12–15</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">6</span><span class="ex-name">Alzate laterali<span class="ex-aim">spalle · larghezza (priorità estetica)</span></span><span class="ex-sets">4×12–15</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">7</span><span class="ex-name">Curl bilanciere EZ<span class="ex-aim">bicipiti · diretto (porta le braccia a 2×)</span></span><span class="ex-sets">3×8–12</span><span class="ex-rest">60″</span></div>
         </div>
       </div>
 
@@ -535,6 +541,20 @@
           <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Stacco rumeno / trap bar<span class="ex-aim">hinge controllato · no max</span></span><span class="ex-sets">3×8</span><span class="ex-rest">2′</span></div>
           <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Leg curl sdraiato<span class="ex-aim">femorali · altro angolo</span></span><span class="ex-sets">3×12</span><span class="ex-rest">60″</span></div>
           <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Calf seduto<span class="ex-aim">soleo</span></span><span class="ex-sets">4×15</span><span class="ex-rest">45″</span></div>
+        </div>
+      </div>
+
+      <div class="day-card arms">
+        <div class="day-header"><div class="day-top"><span class="day-title">Day 5 · Braccia + Spalle</span><span class="day-tag">Opzionale</span></div><div class="day-focus">Specializzazione estetica · bassa fatica</div></div>
+        <div class="ex-head"><span>#</span><span>Esercizio</span><span>Serie×Rip</span><span>Rec</span></div>
+        <div class="exercise-list">
+          <div class="exercise-row"><span class="ex-num">1</span><span class="ex-name">Alzate laterali<span class="ex-aim">deltoide laterale · larghezza</span></span><span class="ex-sets">4×12–15</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">2</span><span class="ex-name">Lento avanti manubri / Arnold press<span class="ex-aim">deltoide · press</span></span><span class="ex-sets">3×8–10</span><span class="ex-rest">90″</span></div>
+          <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Alzate posteriori / Face pull<span class="ex-aim">deltoide posteriore · look 3D</span></span><span class="ex-sets">3×15–20</span><span class="ex-rest">45″</span></div>
+          <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Curl bilanciere / manubri<span class="ex-aim">bicipiti</span></span><span class="ex-sets">3×8–12</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Curl a martello<span class="ex-aim">brachiale · spessore braccio</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">45″</span></div>
+          <div class="exercise-row"><span class="ex-num">6</span><span class="ex-name">French press / Skull crusher<span class="ex-aim">tricipiti · capo lungo</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">7</span><span class="ex-name">Push-down ai cavi<span class="ex-aim">tricipiti · capo laterale</span></span><span class="ex-sets">3×12–15</span><span class="ex-rest">45″</span></div>
         </div>
       </div>
 
@@ -606,7 +626,7 @@
       <div class="week-day"><div class="wd-name">Gio</div><div class="wd-tag wd-rest">Riposo<br>LISS</div><div class="wd-diet wd-pizza">OFF 🍕</div></div>
       <div class="week-day"><div class="wd-name">Ven</div><div class="wd-tag wd-upper">Upper B</div><div class="wd-diet wd-on">ON</div></div>
       <div class="week-day"><div class="wd-name">Sab</div><div class="wd-tag wd-lower">Lower B</div><div class="wd-diet wd-on">ON</div></div>
-      <div class="week-day"><div class="wd-name">Dom</div><div class="wd-tag wd-rest">Riposo</div><div class="wd-diet wd-off">OFF</div></div>
+      <div class="week-day"><div class="wd-name">Dom</div><div class="wd-tag" style="color:var(--purple)">Day 5<br>opz.</div><div class="wd-diet" style="color:var(--muted)">OFF/ON</div></div>
     </div>
 
     <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--blue);margin:22px 0 8px;text-transform:uppercase">Opzione B · Mar-Gio-Ven-Sab/Dom</div>
@@ -617,9 +637,9 @@
       <div class="week-day"><div class="wd-name">Gio</div><div class="wd-tag wd-upper">Upper A</div><div class="wd-diet wd-pizza">ON 🍕</div></div>
       <div class="week-day"><div class="wd-name">Ven</div><div class="wd-tag wd-lower">Lower B</div><div class="wd-diet wd-on">ON</div></div>
       <div class="week-day"><div class="wd-name">Sab</div><div class="wd-tag wd-upper">Upper B</div><div class="wd-diet wd-on">ON</div></div>
-      <div class="week-day"><div class="wd-name">Dom</div><div class="wd-tag wd-rest">Riposo</div><div class="wd-diet wd-off">OFF</div></div>
+      <div class="week-day"><div class="wd-name">Dom</div><div class="wd-tag" style="color:var(--purple)">Day 5<br>opz.</div><div class="wd-diet" style="color:var(--muted)">OFF/ON</div></div>
     </div>
-    <div style="font-size:11px;color:var(--muted);margin-top:10px;font-style:italic">Il 4° allenamento può cadere sabato o domenica: se scegli domenica, sposta lì l'ultima seduta e tieni libero il sabato. La pizza del giovedì resta dov'è — in Opzione A cade in un giorno di riposo, in Opzione B in un giorno ON (mangi ON di giorno e la pizza sostituisce la cena).</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:10px;font-style:italic">Il 4° allenamento può cadere sabato o domenica: se scegli domenica, sposta lì l'ultima seduta e tieni libero il sabato. La pizza del giovedì resta dov'è — in Opzione A cade in un giorno di riposo, in Opzione B in un giorno ON (mangi ON di giorno e la pizza sostituisce la cena). <b style="color:var(--purple)">Day 5 (braccia+spalle):</b> opzionale, a bassa fatica — incastralo la domenica o in un qualsiasi giorno libero, anche dopo una seduta pesante (non tassa i grandi movimenti). Quando lo fai, conta come giorno ON leggero.</div>
 
     <div class="section-title" style="margin-top:34px">Regole fondamentali</div>
     <div class="rules-grid">
@@ -630,6 +650,7 @@
       <div class="rule-card"><span class="rule-icon">🚶</span><span class="rule-text"><strong>NEAT &amp; LISS</strong>8.000–10.000 passi/die + 2 camminate da 20–30′. È la leva che brucia di più senza intaccare il recupero in palestra.</span></div>
       <div class="rule-card"><span class="rule-icon">🔄</span><span class="rule-text"><strong>Deload</strong>Ogni 5–6 settimane: volume −40%, carichi al ~70%. In deficit recuperi peggio: il deload tiene alti i carichi nel lungo periodo.</span></div>
       <div class="rule-card"><span class="rule-icon">📅</span><span class="rule-text"><strong>Durata del blocco</strong>Tieni questa routine per tutto il cut — da giugno a settembre, ~12-14 settimane, con deload alle settimane 6 e 12. Non serve cambiare esercizi a calendario: la costanza e il sovraccarico contano più della varietà. A settembre rivaluti su fisico e carichi, poi passi a mantenimento o lieve massa.</span></div>
+      <div class="rule-card"><span class="rule-icon">🏆</span><span class="rule-text"><strong>Estetica natural</strong>Per quel look i muscoli chiave sono spalle (larghezza), petto (pienezza) e braccia, più una vita asciutta. Petto 2× con 2 esercizi, braccia ora 2×, laterali in priorità (spingibili a 12-15/sett). La definizione e l'addome li fa il cut, non i farmaci: quella parte è tutta tua. La forma è replicabile da natural; la densità estrema del riferimento no. Con un 5° giorno futuro (braccia+spalle) ti avvicini di più.</span></div>
     </div>
   </div>
 
