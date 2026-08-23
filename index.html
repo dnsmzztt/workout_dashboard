@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cut Plan 2026</title>
+<title>Winter Arc 26/27</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#07090f;
+    --bg:#06080f;
     --glass:rgba(255,255,255,0.07);
     --glass-border:rgba(255,255,255,0.13);
     --glass-shine:rgba(255,255,255,0.17);
     --text:#f0f2f8;
     --muted:rgba(190,205,230,0.5);
+    --ice:#6fd6ff;
     --orange:#ff8c42;
     --green:#4ade80;
     --red:#ff6b6b;
@@ -36,24 +37,24 @@
   body::before{
     content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     background:
-      radial-gradient(ellipse 90% 55% at 15% 5%, rgba(255,100,40,0.13) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 50% at 85% 18%, rgba(96,165,250,0.10) 0%, transparent 65%),
-      radial-gradient(ellipse 70% 55% at 50% 88%, rgba(74,222,128,0.08) 0%, transparent 65%),
-      radial-gradient(ellipse 55% 40% at 92% 72%, rgba(192,132,252,0.07) 0%, transparent 65%);
+      radial-gradient(ellipse 90% 55% at 15% 5%, rgba(80,190,255,0.13) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 85% 18%, rgba(96,120,250,0.10) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 55% at 50% 88%, rgba(74,222,170,0.08) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 40% at 92% 72%, rgba(192,132,252,0.08) 0%, transparent 65%);
   }
   body>*{position:relative;z-index:1;}
 
   /* HEADER */
   .header{padding:56px 40px 30px;}
-  .header-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--orange);text-transform:uppercase;margin-bottom:10px;opacity:.85;}
-  .header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,92px);letter-spacing:.04em;line-height:1;text-shadow:0 0 90px rgba(255,140,66,.28);}
-  .header h1 span{color:var(--orange);}
+  .header-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--ice);text-transform:uppercase;margin-bottom:10px;opacity:.85;}
+  .header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,92px);letter-spacing:.04em;line-height:1;text-shadow:0 0 90px rgba(111,214,255,.28);}
+  .header h1 span{color:var(--ice);}
   .header-sub{font-family:'DM Mono',monospace;font-size:13px;color:var(--muted);letter-spacing:.18em;margin-top:7px;text-transform:uppercase;}
   .stats-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
   .stat{background:rgba(255,255,255,0.06);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:11px 22px;display:flex;flex-direction:column;gap:3px;box-shadow:inset 0 1px 0 var(--glass-shine),0 4px 18px rgba(0,0,0,.35);transition:background .2s;}
   .stat:hover{background:rgba(255,255,255,.10);}
   .stat-label{font-size:9px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;}
-  .stat-value{font-family:'DM Mono',monospace;font-size:19px;font-weight:500;color:var(--orange);}
+  .stat-value{font-family:'DM Mono',monospace;font-size:19px;font-weight:500;color:var(--ice);}
   .stat.alt .stat-value{color:var(--green);}
   .stat.alt2 .stat-value{color:var(--blue);}
 
@@ -66,8 +67,20 @@
   .energy-cell .ec-val small{font-size:11px;color:var(--muted);}
   .ec-arrow{display:flex;align-items:center;color:var(--muted);font-size:18px;flex:0 0 auto;padding:0 4px;}
 
+  /* ROADMAP */
+  .rm-caption{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:18px 40px 0;}
+  .roadmap{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin:8px 40px 0;}
+  .rm-cell{background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;padding:10px 6px;text-align:center;box-shadow:inset 0 1px 0 var(--glass-shine);transition:transform .15s;}
+  .rm-cell:hover{transform:translateY(-1px);}
+  .rm-month{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+  .rm-kg{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;color:var(--text);}
+  .rm-cell.start{border-color:rgba(111,214,255,.4);}
+  .rm-cell.start .rm-kg{color:var(--ice);}
+  .rm-cell.goal{border-color:rgba(74,222,128,.45);background:rgba(74,222,128,.07);}
+  .rm-cell.goal .rm-kg{color:var(--green);}
+
   /* TABS */
-  .tabs-wrapper{padding:14px 40px;position:sticky;top:0;z-index:100;background:linear-gradient(to bottom,rgba(7,9,15,.94),rgba(7,9,15,.74));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);margin-top:24px;}
+  .tabs-wrapper{padding:14px 40px;position:sticky;top:0;z-index:100;background:linear-gradient(to bottom,rgba(6,8,15,.94),rgba(6,8,15,.74));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);margin-top:24px;}
   .tabs{display:inline-flex;gap:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:5px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 4px 20px rgba(0,0,0,.4);}
   .tab{padding:9px 22px;cursor:pointer;color:var(--muted);font-size:13px;font-weight:500;transition:all .2s;user-select:none;border-radius:12px;white-space:nowrap;border:1px solid transparent;}
   .tab:hover{color:var(--text);background:rgba(255,255,255,.06);}
@@ -130,7 +143,7 @@
   .meal-foods{padding:13px 18px 16px;display:flex;flex-direction:column;gap:8px;}
   .food-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;}
   .food-name{font-size:13px;}
-  .food-qty{font-family:'DM Mono',monospace;font-size:12px;color:var(--orange);white-space:nowrap;}
+  .food-qty{font-family:'DM Mono',monospace;font-size:12px;color:var(--ice);white-space:nowrap;}
   .food-note{font-size:11px;color:var(--muted);font-style:italic;margin-top:-2px;}
   .meal-prep{margin:2px 18px 16px;padding:9px 12px;background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.16);border-radius:10px;font-size:11px;color:var(--muted);line-height:1.45;}
   .meal-prep b{color:var(--blue);font-weight:600;}
@@ -179,7 +192,7 @@
   .rule-card:hover{transform:translateY(-1px);background:rgba(255,255,255,.09);}
   .rule-icon{font-size:18px;line-height:1.3;flex-shrink:0;}
   .rule-text{font-size:13px;line-height:1.5;}
-  .rule-text strong{color:var(--orange);display:block;margin-bottom:2px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;}
+  .rule-text strong{color:var(--ice);display:block;margin-bottom:2px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;}
 
   /* TABLE */
   .table-wrap{overflow-x:auto;border-radius:20px;margin-top:18px;}
@@ -204,7 +217,7 @@
   .shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:18px;}
   .shop-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:15px 17px;box-shadow:inset 0 1px 0 var(--glass-shine);}
   .shop-cat{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;}
-  .shop-cat b{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.05em;color:var(--orange);}
+  .shop-cat b{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.05em;color:var(--ice);}
   .shop-cat span{font-family:'DM Mono',monospace;font-size:12px;color:var(--green);}
   .shop-items{font-size:12px;color:var(--muted);line-height:1.55;}
   .budget-bar{margin-top:16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;box-shadow:inset 0 1px 0 var(--glass-shine);}
@@ -220,6 +233,8 @@
   @media (max-width:760px){
     .header{padding:34px 18px 18px;}
     .energy-strip{margin:18px 18px 0;}
+    .rm-caption{margin:18px 18px 0;}
+    .roadmap{grid-template-columns:repeat(4,1fr);margin:8px 18px 0;}
     .tabs-wrapper{padding:10px 18px;}
     .main{padding:22px 18px 54px;}
     .macro-banner{grid-template-columns:1fr;}
@@ -231,27 +246,39 @@
 <body>
 
 <div class="header">
-  <div class="header-label">Programmazione personalizzata · avanzato</div>
-  <h1>CUT <span>PLAN</span> 2026</h1>
-  <div class="header-sub">Ricomposizione · mantieni muscolo, perdi grasso</div>
+  <div class="header-label">Programmazione personalizzata · bulk invernale 26/27</div>
+  <h1>WINTER <span>ARC</span></h1>
+  <div class="header-sub">Massa pulita · costruisci muscolo, non grasso</div>
   <div class="stats-row">
-    <div class="stat"><span class="stat-label">Peso</span><span class="stat-value">95 kg</span></div>
+    <div class="stat"><span class="stat-label">Start · 24 ago</span><span class="stat-value">91,5 kg</span></div>
+    <div class="stat alt"><span class="stat-label">Obiettivo · metà marzo</span><span class="stat-value">100 kg</span></div>
     <div class="stat alt2"><span class="stat-label">Altezza</span><span class="stat-value">1.87 m</span></div>
-    <div class="stat"><span class="stat-label">Età</span><span class="stat-value">33</span></div>
-    <div class="stat alt"><span class="stat-label">Split</span><span class="stat-value">4× U/L</span></div>
+    <div class="stat"><span class="stat-label">Split</span><span class="stat-value">4× U/L</span></div>
   </div>
 </div>
 
 <div class="energy-strip">
-  <div class="energy-cell"><div class="ec-label">BMR</div><div class="ec-val">1.960 <small>kcal</small></div></div>
-  <div class="ec-arrow">→</div>
   <div class="energy-cell"><div class="ec-label">Mantenimento stimato</div><div class="ec-val">~2.900 <small>kcal</small></div></div>
-  <div class="ec-arrow">−</div>
-  <div class="energy-cell"><div class="ec-label">Deficit medio</div><div class="ec-val" style="color:var(--red)">~470 <small>kcal</small></div></div>
+  <div class="ec-arrow">+</div>
+  <div class="energy-cell"><div class="ec-label">Surplus medio</div><div class="ec-val" style="color:var(--green)">~310 <small>kcal</small></div></div>
   <div class="ec-arrow">=</div>
-  <div class="energy-cell"><div class="ec-label">Media settimanale</div><div class="ec-val" style="color:var(--green)">~2.430 <small>kcal</small></div></div>
+  <div class="energy-cell"><div class="ec-label">Media settimanale</div><div class="ec-val" style="color:var(--ice)">~3.210 <small>kcal</small></div></div>
   <div class="ec-arrow">≈</div>
-  <div class="energy-cell"><div class="ec-label">Calo atteso</div><div class="ec-val" style="color:var(--orange)">0.45 <small>kg/sett</small></div></div>
+  <div class="energy-cell"><div class="ec-label">Crescita attesa</div><div class="ec-val" style="color:var(--green)">+0,2–0,3 <small>kg/sett</small></div></div>
+  <div class="ec-arrow">→</div>
+  <div class="energy-cell"><div class="ec-label">Traguardo</div><div class="ec-val" style="color:var(--yellow)">100 <small>kg · marzo</small></div></div>
+</div>
+
+<div class="rm-caption">La rotta · ~1,2 kg al mese · deload sett 7 · 13 · 18 (Natale) · 24</div>
+<div class="roadmap">
+  <div class="rm-cell start"><div class="rm-month">24 Ago</div><div class="rm-kg">91,5</div></div>
+  <div class="rm-cell"><div class="rm-month">Fine Set</div><div class="rm-kg">~93,5</div></div>
+  <div class="rm-cell"><div class="rm-month">Fine Ott</div><div class="rm-kg">~94,5</div></div>
+  <div class="rm-cell"><div class="rm-month">Fine Nov</div><div class="rm-kg">~96</div></div>
+  <div class="rm-cell"><div class="rm-month">Natale</div><div class="rm-kg">~97</div></div>
+  <div class="rm-cell"><div class="rm-month">Fine Gen</div><div class="rm-kg">~98,5</div></div>
+  <div class="rm-cell"><div class="rm-month">Fine Feb</div><div class="rm-kg">~99,5</div></div>
+  <div class="rm-cell goal"><div class="rm-month">15 Mar</div><div class="rm-kg">100 🎯</div></div>
 </div>
 
 <div class="tabs-wrapper">
@@ -270,15 +297,15 @@
     <div class="macro-banner">
       <div class="macro-card on">
         <div class="macro-card-title">GIORNO ON 🟢</div>
-        <div class="macro-card-meta">Giorni di allenamento · più carboidrati</div>
-        <div class="macro-card-kcal">2.521 kcal</div>
-        <div class="macro-pills"><span class="pill p">P 205g</span><span class="pill c">C 319g</span><span class="pill g">G 47g</span></div>
+        <div class="macro-card-meta">Giorni di allenamento · carbo alti attorno al workout</div>
+        <div class="macro-card-kcal">3.525 kcal</div>
+        <div class="macro-pills"><span class="pill p">P 227g</span><span class="pill c">C 481g</span><span class="pill g">G 70g</span></div>
       </div>
       <div class="macro-card off">
         <div class="macro-card-title">GIORNO OFF 🟠</div>
-        <div class="macro-card-meta">Giorni di riposo · meno carbo, più grassi</div>
-        <div class="macro-card-kcal">2.220 kcal</div>
-        <div class="macro-pills"><span class="pill p">P 194g</span><span class="pill c">C 208g</span><span class="pill g">G 68g</span></div>
+        <div class="macro-card-meta">Giorni di riposo · si cresce anche da fermi</div>
+        <div class="macro-card-kcal">2.785 kcal</div>
+        <div class="macro-pills"><span class="pill p">P 203g</span><span class="pill c">C 314g</span><span class="pill g">G 77g</span></div>
       </div>
     </div>
 
@@ -292,71 +319,76 @@
     <div id="meals-on" class="meals-grid">
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">🌅 Colazione<span class="meal-time">porridge proteico</span></span><span class="meal-kcal">618 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>42g</span></div><div class="macro-badge c"><span>Carb</span><span>82g</span></div><div class="macro-badge g"><span>Grassi</span><span>13g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:27%"></div><div class="bar-c" style="width:54%"></div><div class="bar-g" style="width:19%"></div></div>
+        <div class="meal-header"><span class="meal-name">🌅 Colazione<span class="meal-time">porridge da massa</span></span><span class="meal-kcal">840 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>47g</span></div><div class="macro-badge c"><span>Carb</span><span>117g</span></div><div class="macro-badge g"><span>Grassi</span><span>20g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:22%"></div><div class="bar-c" style="width:56%"></div><div class="bar-g" style="width:22%"></div></div>
         <div class="meal-foods">
-          <div class="food-row"><span class="food-name">Avena</span><span class="food-qty">70 g</span></div>
+          <div class="food-row"><span class="food-name">Avena</span><span class="food-qty">100 g</span></div>
           <div class="food-row"><span class="food-name">Skyr / yogurt greco 0%</span><span class="food-qty">250 g</span></div>
-          <div class="food-row"><span class="food-name">Banana</span><span class="food-qty">100 g</span></div>
-          <div class="food-row"><span class="food-name">Burro d'arachidi</span><span class="food-qty">15 g</span></div>
-          <div class="food-row"><span class="food-name">Marmellata light</span><span class="food-qty">15 g</span></div>
+          <div class="food-row"><span class="food-name">Banana</span><span class="food-qty">120 g</span></div>
+          <div class="food-row"><span class="food-name">Burro d'arachidi</span><span class="food-qty">25 g</span></div>
+          <div class="food-row"><span class="food-name">Miele</span><span class="food-qty">20 g</span></div>
         </div>
-        <div class="meal-prep"><b>5 min</b> · Avena al microonde 90 sec con un goccio di latte, manteca lo skyr fuori dal fuoco, finisci con banana e burro d'arachidi.</div>
-        <div class="meal-prep" style="background:rgba(255,140,66,.06);border-color:rgba(255,140,66,.18)"><b style="color:var(--orange)">Senza banana?</b> Sostituiscila (vale ~90 kcal · 23 g carbo) con:<br>· <b style="color:var(--text)">Cereali al miele/integrali 25-30 g</b> sopra il porridge — la crunch al posto della banana <span style="color:var(--muted)">(~100 kcal)</span><br>· oppure <b style="color:var(--text)">+25 g di avena</b> <span style="color:var(--muted)">(~92 kcal, un filo più proteico)</span><br>· oppure <b style="color:var(--text)">35 g di pane</b> con la marmellata <span style="color:var(--muted)">(~93 kcal)</span></div>
+        <div class="meal-prep"><b>5 min</b> · Stessa routine del cut, dosi da inverno: avena al microonde 90 sec, skyr fuori dal fuoco, banana, burro d'arachidi e miele sopra. È il pasto che costruisce la giornata.</div>
+        <div class="meal-prep" style="background:rgba(111,214,255,.06);border-color:rgba(111,214,255,.18)"><b style="color:var(--ice)">Senza banana?</b> Sostituiscila (vale ~105 kcal · 26 g carbo) con:<br>· <b style="color:var(--text)">Cereali al miele/integrali 30 g</b> sopra il porridge <span style="color:var(--muted)">(~115 kcal)</span><br>· oppure <b style="color:var(--text)">+30 g di avena</b> <span style="color:var(--muted)">(~113 kcal, più proteico)</span><br>· oppure <b style="color:var(--text)">40 g di pane</b> col miele <span style="color:var(--muted)">(~106 kcal)</span></div>
       </div>
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">🥛 Spuntino<span class="meal-time">metà mattina</span></span><span class="meal-kcal">279 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>29g</span></div><div class="macro-badge c"><span>Carb</span><span>29g</span></div><div class="macro-badge g"><span>Grassi</span><span>6g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:42%"></div><div class="bar-c" style="width:42%"></div><div class="bar-g" style="width:16%"></div></div>
+        <div class="meal-header"><span class="meal-name">🥛 Spuntino<span class="meal-time">metà mattina</span></span><span class="meal-kcal">525 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>33g</span></div><div class="macro-badge c"><span>Carb</span><span>57g</span></div><div class="macro-badge g"><span>Grassi</span><span>17g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:26%"></div><div class="bar-c" style="width:45%"></div><div class="bar-g" style="width:29%"></div></div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Fiocchi di latte light</span><span class="food-qty">200 g</span></div>
-          <div class="food-row"><span class="food-name">Crackers</span><span class="food-qty">30 g</span></div>
+          <div class="food-row"><span class="food-name">Pane</span><span class="food-qty">70 g</span></div>
+          <div class="food-row"><span class="food-name">Marmellata</span><span class="food-qty">20 g</span></div>
+          <div class="food-row"><span class="food-name">Noci</span><span class="food-qty">15 g</span></div>
           <div class="food-row"><span class="food-name">Caffè</span><span class="food-qty">×2</span></div>
         </div>
-        <div class="meal-prep"><b>0 min</b> · Tutto portatile, zero preparazione in ufficio.</div>
-        <div class="meal-prep" style="background:rgba(255,140,66,.06);border-color:rgba(255,140,66,.18)"><b style="color:var(--orange)">Niente fiocchi di latte?</b> Sostituisci i 200 g (~26 g proteine) con:<br>· <b style="color:var(--text)">Skyr / yogurt greco 200 g</b> <span style="color:var(--muted)">(il più simile)</span> · <b style="color:var(--text)">Tonno 120 g</b>, <b style="color:var(--text)">bresaola 70 g</b> o <b style="color:var(--text)">prosciutto cotto ~120 g</b> <span style="color:var(--muted)">(salato — il cotto è un filo più grasso e salato, ottimo come rotazione non come fisso)</span> · <b style="color:var(--text)">shaker whey 30 g</b><br>· <b style="color:var(--text)">Uova 3</b> <span style="color:var(--muted)">vanno bene ma più grasse e meno proteiche — aggiungi 2 albumi per pareggiare.</span> Vale anche per lo spuntino OFF.</div>
+        <div class="meal-prep"><b>0 min</b> · Tutto portatile: pane e marmellata al posto dei crackers del cut, le noci chiudono i grassi buoni.</div>
+        <div class="meal-prep" style="background:rgba(111,214,255,.06);border-color:rgba(111,214,255,.18)"><b style="color:var(--ice)">Niente fiocchi di latte?</b> Sostituisci i 200 g (~25 g proteine) con:<br>· <b style="color:var(--text)">Skyr / yogurt greco 200 g</b> <span style="color:var(--muted)">(il più simile)</span> · <b style="color:var(--text)">Tonno 120 g</b>, <b style="color:var(--text)">bresaola 70 g</b> o <b style="color:var(--text)">prosciutto cotto ~120 g</b> <span style="color:var(--muted)">(rotazione, non fisso: più salato)</span> · <b style="color:var(--text)">shaker whey 30 g</b><br>· <b style="color:var(--text)">Uova 3</b> <span style="color:var(--muted)">ok ma più grasse — vale anche per lo spuntino OFF.</span></div>
       </div>
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">🍚 Pranzo<span class="meal-time">schiscetta</span></span><span class="meal-kcal">699 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>49g</span></div><div class="macro-badge c"><span>Carb</span><span>93g</span></div><div class="macro-badge g"><span>Grassi</span><span>14g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:28%"></div><div class="bar-c" style="width:54%"></div><div class="bar-g" style="width:18%"></div></div>
+        <div class="meal-header"><span class="meal-name">🍚 Pranzo<span class="meal-time">schiscetta</span></span><span class="meal-kcal">960 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>56g</span></div><div class="macro-badge c"><span>Carb</span><span>147g</span></div><div class="macro-badge g"><span>Grassi</span><span>14g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:24%"></div><div class="bar-c" style="width:63%"></div><div class="bar-g" style="width:13%"></div></div>
         <div class="meal-foods">
-          <div class="food-row"><span class="food-name">Riso basmati <span style="color:var(--muted);font-size:11px">(crudo)</span></span><span class="food-qty">110 g</span></div>
-          <div class="food-row"><span class="food-name">Petto di pollo <span style="color:var(--muted);font-size:11px">(crudo)</span></span><span class="food-qty">160 g</span></div>
+          <div class="food-row"><span class="food-name">Riso basmati <span style="color:var(--muted);font-size:11px">(crudo)</span></span><span class="food-qty">180 g</span></div>
+          <div class="food-row"><span class="food-name">Petto di pollo <span style="color:var(--muted);font-size:11px">(crudo)</span></span><span class="food-qty">180 g</span></div>
           <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">10 g</span></div>
           <div class="food-row"><span class="food-name">Verdure</span><span class="food-qty">≥150 g</span></div>
         </div>
-        <div class="meal-prep"><b>Prep la sera prima</b> · Vedi sezione "Costruisci il piatto" per cambiare proteina e carbo ogni giorno.</div>
-        <div class="meal-prep" style="background:rgba(255,140,66,.06);border-color:rgba(255,140,66,.18)"><b style="color:var(--orange)">Hai salmone affumicato e gnocchi?</b> Salmone affumicato 180 g + gnocchi 250 g + verdure ≥150 g, senza olio aggiunto <span style="color:var(--muted)">(~610 kcal · P46 · C83 · F11)</span>. Più carbo e un filo meno proteine del pollo+riso: ok per un pasto. Occasionale, non fisso — il salmone affumicato è molto salato (ritenzione idrica → falso peso il giorno dopo). Giorno OFF: 200 g gnocchi + 160 g salmone.</div>
+        <div class="meal-prep"><b>Prep la sera prima</b> · 180 g di riso: partendo da 91,5 kg il grosso del surplus vive in questo pasto. Vedi "Costruisci il piatto" per ruotare proteina e carbo.</div>
+        <div class="meal-prep" style="background:rgba(111,214,255,.06);border-color:rgba(111,214,255,.18)"><b style="color:var(--ice)">Hai salmone affumicato e gnocchi?</b> Gnocchi 380 g + salmone affumicato 150 g + verdure, senza olio aggiunto <span style="color:var(--muted)">(~750 kcal · P52 · C114 · F6)</span>. Occasionale, non fisso: il salmone affumicato è molto salato (ritenzione → falso peso il giorno dopo). Giorno OFF: gnocchi 250 g + salmone 130 g.</div>
       </div>
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">⚡ Pre/Post WO<span class="meal-time">pomeriggio</span></span><span class="meal-kcal">345 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>33g</span></div><div class="macro-badge c"><span>Carb</span><span>50g</span></div><div class="macro-badge g"><span>Grassi</span><span>3g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:38%"></div><div class="bar-c" style="width:58%"></div><div class="bar-g" style="width:4%"></div></div>
+        <div class="meal-header"><span class="meal-name">⚡ Pre/Post WO<span class="meal-time">pomeriggio</span></span><span class="meal-kcal">445 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>33g</span></div><div class="macro-badge c"><span>Carb</span><span>72g</span></div><div class="macro-badge g"><span>Grassi</span><span>3g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:30%"></div><div class="bar-c" style="width:64%"></div><div class="bar-g" style="width:6%"></div></div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Banana</span><span class="food-qty">120 g</span></div>
           <div class="food-row"><span class="food-name">Whey protein</span><span class="food-qty">35 g</span></div>
-          <div class="food-row"><span class="food-name">Pane</span><span class="food-qty">40 g</span></div>
+          <div class="food-row"><span class="food-name">Pane</span><span class="food-qty">60 g</span></div>
+          <div class="food-row"><span class="food-name">Miele</span><span class="food-qty">15 g</span></div>
           <div class="food-row"><span class="food-name">Creatina</span><span class="food-qty">6 g</span></div>
         </div>
-        <div class="meal-prep"><b>1 min</b> · Carbo a rapido rilascio prima della seduta: spinta sotto i bilancieri.</div>
+        <div class="meal-prep"><b>1 min</b> · Carbo rapidi prima della seduta: in surplus questa benzina la senti tutta sotto i bilancieri. È il momento di spingere.</div>
+        <div class="meal-prep" style="background:rgba(111,214,255,.06);border-color:rgba(111,214,255,.18)"><b style="color:var(--ice)">Senza banana?</b> Qui servono zuccheri rapidi (vale ~105 kcal · 26 g carbo):<br>· <b style="color:var(--text)">Marmellata 40 g</b> spalmata sul pane che c'è già <span style="color:var(--muted)">(~108 kcal — la sostituzione perfetta)</span><br>· oppure <b style="color:var(--text)">miele a 50 g totali</b> (+35 g rispetto al piano) <span style="color:var(--muted)">(~106 kcal)</span><br>· oppure <b style="color:var(--text)">mela ~180 g</b> o <b style="color:var(--text)">uva ~150 g</b> <span style="color:var(--muted)">(~95 kcal)</span></div>
       </div>
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">🥩 Cena<span class="meal-time">post-workout · ~21:00</span></span><span class="meal-kcal">581 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>53g</span></div><div class="macro-badge c"><span>Carb</span><span>64g</span></div><div class="macro-badge g"><span>Grassi</span><span>12g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:39%"></div><div class="bar-c" style="width:48%"></div><div class="bar-g" style="width:13%"></div></div>
+        <div class="meal-header"><span class="meal-name">🥩 Cena<span class="meal-time">post-workout · ~21:00</span></span><span class="meal-kcal">755 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>58g</span></div><div class="macro-badge c"><span>Carb</span><span>88g</span></div><div class="macro-badge g"><span>Grassi</span><span>16g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:32%"></div><div class="bar-c" style="width:48%"></div><div class="bar-g" style="width:20%"></div></div>
         <div class="meal-foods">
-          <div class="food-row"><span class="food-name">Pollo / merluzzo / gamberi</span><span class="food-qty">180–220 g</span></div>
-          <div class="food-row"><span class="food-name">Patate</span><span class="food-qty">320 g</span></div>
-          <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">8 g</span></div>
+          <div class="food-row"><span class="food-name">Pollo / merluzzo / gamberi</span><span class="food-qty">200–220 g</span></div>
+          <div class="food-row"><span class="food-name">Patate</span><span class="food-qty">450 g</span></div>
+          <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">12 g</span></div>
           <div class="food-row"><span class="food-name">Verdure</span><span class="food-qty">≥200 g</span></div>
         </div>
-        <div class="meal-prep"><b>10 min</b> · Merluzzo/gamberi cuociono in 5 min, patate al microonde. Il piatto più veloce, per quando torni distrutto.</div>
+        <div class="meal-prep"><b>10 min</b> · Merluzzo e gamberi cuociono in 5 min, patate al microonde. Il pasto che ricarica il glicogeno per la seduta di domani.</div>
+        <div class="meal-prep" style="background:rgba(111,214,255,.06);border-color:rgba(111,214,255,.18)"><b style="color:var(--ice)">Salmone fresco 2 sere a settimana</b> — al posto del pollo: salmone 180 g, <b style="color:var(--text)">niente olio aggiunto</b> e patate a 330 g <span style="color:var(--muted)">(~700 kcal · P47 · C66 · F26)</span>. Omega-3 e grassi buoni: in massa il salmone è un alleato, non un extra.</div>
       </div>
 
     </div>
@@ -365,83 +397,87 @@
     <div id="meals-off" class="meals-grid" style="display:none">
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">🌅 Colazione<span class="meal-time">salata, per cambiare</span></span><span class="meal-kcal">506 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>27g</span></div><div class="macro-badge c"><span>Carb</span><span>45g</span></div><div class="macro-badge g"><span>Grassi</span><span>24g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:22%"></div><div class="bar-c" style="width:35%"></div><div class="bar-g" style="width:43%"></div></div>
+        <div class="meal-header"><span class="meal-name">🌅 Colazione<span class="meal-time">salata, per cambiare</span></span><span class="meal-kcal">610 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>30g</span></div><div class="macro-badge c"><span>Carb</span><span>65g</span></div><div class="macro-badge g"><span>Grassi</span><span>24g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:20%"></div><div class="bar-c" style="width:43%"></div><div class="bar-g" style="width:37%"></div></div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Uova</span><span class="food-qty">3 (150 g)</span></div>
-          <div class="food-row"><span class="food-name">Pane</span><span class="food-qty">80 g</span></div>
+          <div class="food-row"><span class="food-name">Pane</span><span class="food-qty">120 g</span></div>
           <div class="food-row"><span class="food-name">Avocado</span><span class="food-qty">50 g</span></div>
         </div>
-        <div class="meal-prep"><b>6 min</b> · Uova strapazzate, pane tostato, avocado schiacciato sopra.</div>
-        <div class="meal-prep" style="background:rgba(255,140,66,.06);border-color:rgba(255,140,66,.18)"><b style="color:var(--orange)">Senza uova/avocado?</b> 3 alternative equivalenti (~stesso totale):<br>· <b style="color:var(--text)">Dolce:</b> avena 60 g + skyr 200 g + noci 20 g + marmellata 15 g <span style="color:var(--muted)">(501 kcal · P33)</span><br>· <b style="color:var(--text)">Salato:</b> pane 80 g + bresaola 70 g + grana 30 g <span style="color:var(--muted)">(435 kcal · P40)</span><br>· <b style="color:var(--text)">Veloce 0 min:</b> fiocchi di latte 250 g + crackers 40 g + noci 15 g <span style="color:var(--muted)">(457 kcal · P38)</span></div>
+        <div class="meal-prep"><b>6 min</b> · Uova strapazzate, pane tostato, avocado schiacciato sopra. Nei giorni OFF i grassi salgono: il testosterone ringrazia.</div>
+        <div class="meal-prep" style="background:rgba(111,214,255,.06);border-color:rgba(111,214,255,.18)"><b style="color:var(--ice)">Senza uova/avocado?</b> 3 alternative equivalenti:<br>· <b style="color:var(--text)">Dolce:</b> avena 80 g + skyr 250 g + noci 20 g + miele 15 g <span style="color:var(--muted)">(~620 kcal · P39)</span><br>· <b style="color:var(--text)">Salato:</b> pane 120 g + bresaola 80 g + grana 30 g <span style="color:var(--muted)">(~560 kcal · P46)</span><br>· <b style="color:var(--text)">Veloce 0 min:</b> fiocchi di latte 250 g + crackers 50 g + noci 15 g <span style="color:var(--muted)">(~550 kcal · P38)</span></div>
       </div>
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">🥛 Spuntino<span class="meal-time">metà mattina</span></span><span class="meal-kcal">221 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>27g</span></div><div class="macro-badge c"><span>Carb</span><span>8g</span></div><div class="macro-badge g"><span>Grassi</span><span>10g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:50%"></div><div class="bar-c" style="width:15%"></div><div class="bar-g" style="width:35%"></div></div>
+        <div class="meal-header"><span class="meal-name">🥛 Spuntino<span class="meal-time">metà mattina</span></span><span class="meal-kcal">425 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>30g</span></div><div class="macro-badge c"><span>Carb</span><span>35g</span></div><div class="macro-badge g"><span>Grassi</span><span>17g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:30%"></div><div class="bar-c" style="width:34%"></div><div class="bar-g" style="width:36%"></div></div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Fiocchi di latte light</span><span class="food-qty">200 g</span></div>
+          <div class="food-row"><span class="food-name">Crackers</span><span class="food-qty">40 g</span></div>
           <div class="food-row"><span class="food-name">Noci</span><span class="food-qty">10 g</span></div>
           <div class="food-row"><span class="food-name">Caffè</span><span class="food-qty">×2</span></div>
         </div>
-        <div class="meal-prep"><b>0 min</b> · Nei giorni di riposo i carbo scendono, i grassi salgono leggermente.</div>
+        <div class="meal-prep"><b>0 min</b> · Nei giorni di riposo i carbo scendono un po', ma restano ben sopra i livelli del cut: qui si recupera, non si taglia.</div>
       </div>
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">🍝 Pranzo<span class="meal-time">schiscetta</span></span><span class="meal-kcal">572 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>46g</span></div><div class="macro-badge c"><span>Carb</span><span>65g</span></div><div class="macro-badge g"><span>Grassi</span><span>13g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:31%"></div><div class="bar-c" style="width:44%"></div><div class="bar-g" style="width:25%"></div></div>
+        <div class="meal-header"><span class="meal-name">🍝 Pranzo<span class="meal-time">schiscetta</span></span><span class="meal-kcal">655 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>46g</span></div><div class="macro-badge c"><span>Carb</span><span>83g</span></div><div class="macro-badge g"><span>Grassi</span><span>13g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:29%"></div><div class="bar-c" style="width:52%"></div><div class="bar-g" style="width:19%"></div></div>
         <div class="meal-foods">
-          <div class="food-row"><span class="food-name">Pasta <span style="color:var(--muted);font-size:11px">(cruda)</span></span><span class="food-qty">80 g</span></div>
+          <div class="food-row"><span class="food-name">Pasta <span style="color:var(--muted);font-size:11px">(cruda)</span></span><span class="food-qty">110 g</span></div>
           <div class="food-row"><span class="food-name">Tonno al naturale</span><span class="food-qty">130 g</span></div>
           <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">10 g</span></div>
           <div class="food-row"><span class="food-name">Verdure</span><span class="food-qty">≥150 g</span></div>
         </div>
-        <div class="meal-prep"><b>Prep la sera prima</b> · Insalata di pasta fredda: si fa in anticipo, perfetta da ufficio.</div>
+        <div class="meal-prep"><b>Prep la sera prima</b> · Insalata di pasta fredda: si prepara in anticipo, perfetta da ufficio. +30 g di pasta rispetto al cut.</div>
       </div>
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">🥤 Spuntino<span class="meal-time">pomeriggio</span></span><span class="meal-kcal">300 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>43g</span></div><div class="macro-badge c"><span>Carb</span><span>30g</span></div><div class="macro-badge g"><span>Grassi</span><span>2g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:55%"></div><div class="bar-c" style="width:39%"></div><div class="bar-g" style="width:6%"></div></div>
+        <div class="meal-header"><span class="meal-name">🥤 Spuntino<span class="meal-time">pomeriggio</span></span><span class="meal-kcal">350 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>41g</span></div><div class="macro-badge c"><span>Carb</span><span>44g</span></div><div class="macro-badge g"><span>Grassi</span><span>2g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:46%"></div><div class="bar-c" style="width:49%"></div><div class="bar-g" style="width:5%"></div></div>
         <div class="meal-foods">
           <div class="food-row"><span class="food-name">Skyr</span><span class="food-qty">200 g</span></div>
           <div class="food-row"><span class="food-name">Whey protein</span><span class="food-qty">25 g</span></div>
-          <div class="food-row"><span class="food-name">Banana</span><span class="food-qty">90 g</span></div>
+          <div class="food-row"><span class="food-name">Banana</span><span class="food-qty">120 g</span></div>
+          <div class="food-row"><span class="food-name">Miele</span><span class="food-qty">10 g</span></div>
           <div class="food-row"><span class="food-name">Creatina</span><span class="food-qty">6 g</span></div>
         </div>
-        <div class="meal-prep"><b>1 min</b> · La creatina va presa anche nei giorni di riposo: conta la costanza, non l'orario.</div>
+        <div class="meal-prep"><b>1 min</b> · La creatina si prende anche nei giorni di riposo: conta la costanza, non l'orario. Mai ciclizzarla.</div>
+        <div class="meal-prep" style="background:rgba(111,214,255,.06);border-color:rgba(111,214,255,.18)"><b style="color:var(--ice)">Senza banana?</b> Vale ~105 kcal · 26 g carbo:<br>· <b style="color:var(--text)">Marmellata 40 g</b> oppure <b style="color:var(--text)">miele a 45 g totali</b> (+35 g) direttamente nello skyr con la whey <span style="color:var(--muted)">(~108 kcal — viene fuori una crema dolce)</span><br>· oppure <b style="color:var(--text)">mela ~180 g</b> / <b style="color:var(--text)">uva ~150 g</b> <span style="color:var(--muted)">(~95 kcal)</span></div>
       </div>
 
       <div class="meal-card">
-        <div class="meal-header"><span class="meal-name">🥩 Cena<span class="meal-time">sera</span></span><span class="meal-kcal">620 kcal</span></div>
-        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>50g</span></div><div class="macro-badge c"><span>Carb</span><span>60g</span></div><div class="macro-badge g"><span>Grassi</span><span>19g</span></div></div>
-        <div class="meal-bar"><div class="bar-p" style="width:33%"></div><div class="bar-c" style="width:40%"></div><div class="bar-g" style="width:27%"></div></div>
+        <div class="meal-header"><span class="meal-name">🥩 Cena<span class="meal-time">sera</span></span><span class="meal-kcal">745 kcal</span></div>
+        <div class="meal-macros"><div class="macro-badge p"><span>Prot</span><span>56g</span></div><div class="macro-badge c"><span>Carb</span><span>87g</span></div><div class="macro-badge g"><span>Grassi</span><span>21g</span></div></div>
+        <div class="meal-bar"><div class="bar-p" style="width:29%"></div><div class="bar-c" style="width:46%"></div><div class="bar-g" style="width:25%"></div></div>
         <div class="meal-foods">
-          <div class="food-row"><span class="food-name">Macinato bovino 5%</span><span class="food-qty">200 g</span></div>
-          <div class="food-row"><span class="food-name">Patate dolci</span><span class="food-qty">250 g</span></div>
-          <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">8 g</span></div>
+          <div class="food-row"><span class="food-name">Macinato bovino 5%</span><span class="food-qty">220 g</span></div>
+          <div class="food-row"><span class="food-name">Patate dolci</span><span class="food-qty">400 g</span></div>
+          <div class="food-row"><span class="food-name">Olio EVO</span><span class="food-qty">10 g</span></div>
           <div class="food-row"><span class="food-name">Verdure</span><span class="food-qty">≥200 g</span></div>
         </div>
-        <div class="meal-prep"><b>8 min</b> · Macinato in padella, patate dolci a cubetti al microonde.</div>
+        <div class="meal-prep"><b>8 min</b> · Macinato in padella, patate dolci a cubetti al microonde. La cena OFF più abbondante del cut: il muscolo si costruisce nel recupero.</div>
       </div>
 
     </div>
 
     <!-- COSTRUISCI IL PIATTO -->
     <div class="section-title">🔁 Costruisci il piatto</div>
-    <div class="section-sub">Pranzo e cena a moduli. Scegli 1 proteina + 1 carbo + 1 grasso + verdure. Le porzioni sono già equivalenti: ruoti a piacere e i conti restano in piedi.</div>
+    <div class="section-sub">Pranzo e cena a moduli. Scegli 1 proteina + 1 carbo + 1 grasso + verdure. Le porzioni sono già equivalenti — dosi da bulk: ruoti a piacere e i conti restano in piedi.</div>
     <div class="swap-grid">
       <div class="swap-card">
-        <div class="swap-title p">Proteine · ~40g</div>
+        <div class="swap-title p">Proteine · ~40-45g</div>
         <div class="swap-list">
-          <div class="swap-item"><span>Pollo</span><span>180 g</span></div>
+          <div class="swap-item"><span>Pollo</span><span>180–200 g</span></div>
           <div class="swap-item"><span>Merluzzo</span><span>220 g</span></div>
           <div class="swap-item"><span>Gamberi</span><span>220 g</span></div>
+          <div class="swap-item"><span>Salmone fresco</span><span>180 g</span></div>
           <div class="swap-item"><span>Tonno naturale</span><span>130 g</span></div>
-          <div class="swap-item"><span>Macinato 5%</span><span>150 g</span></div>
+          <div class="swap-item"><span>Macinato 5%</span><span>180 g</span></div>
           <div class="swap-item"><span>Bresaola</span><span>90 g</span></div>
           <div class="swap-item"><span>Uova</span><span>3 + 2 albumi</span></div>
         </div>
@@ -449,19 +485,21 @@
       <div class="swap-card">
         <div class="swap-title c">Carbo · ON / OFF</div>
         <div class="swap-list">
-          <div class="swap-item"><span>Riso basmati</span><span>110 / 70 g</span></div>
-          <div class="swap-item"><span>Pasta</span><span>110 / 70 g</span></div>
-          <div class="swap-item"><span>Pane</span><span>150 / 95 g</span></div>
-          <div class="swap-item"><span>Patate</span><span>400 / 260 g</span></div>
-          <div class="swap-item"><span>Patate dolci</span><span>360 / 230 g</span></div>
+          <div class="swap-item"><span>Riso basmati</span><span>180 / 110 g</span></div>
+          <div class="swap-item"><span>Pasta</span><span>180 / 110 g</span></div>
+          <div class="swap-item"><span>Pane</span><span>240 / 150 g</span></div>
+          <div class="swap-item"><span>Patate</span><span>750 / 460 g</span></div>
+          <div class="swap-item"><span>Patate dolci</span><span>740 / 450 g</span></div>
+          <div class="swap-item"><span>Gnocchi</span><span>425 / 260 g</span></div>
         </div>
       </div>
       <div class="swap-card">
         <div class="swap-title g">Grassi · scegline 1</div>
         <div class="swap-list">
-          <div class="swap-item"><span>Olio EVO</span><span>8–10 g</span></div>
-          <div class="swap-item"><span>Avocado</span><span>40–50 g</span></div>
-          <div class="swap-item"><span>Noci / frutta secca</span><span>15 g</span></div>
+          <div class="swap-item"><span>Olio EVO</span><span>10–12 g</span></div>
+          <div class="swap-item"><span>Avocado</span><span>50–60 g</span></div>
+          <div class="swap-item"><span>Noci / frutta secca</span><span>15–20 g</span></div>
+          <div class="swap-item"><span>Burro d'arachidi</span><span>15–20 g</span></div>
         </div>
         <div class="swap-title v" style="margin-top:12px">Verdure · libere</div>
         <div class="swap-list"><div class="swap-item"><span>Fresche o surgelate</span><span>≥200 g</span></div></div>
@@ -469,19 +507,19 @@
       <div class="swap-card">
         <div class="swap-title" style="color:var(--purple)">Combo già pronte</div>
         <div class="swap-list" style="gap:8px">
-          <div class="swap-item"><span>🍱 Poke: riso + gamberi + avocado</span><span></span></div>
-          <div class="swap-item"><span>🥪 Tramezzino bresaola + formaggio</span><span></span></div>
+          <div class="swap-item"><span>🍱 Poke: riso + salmone + avocado</span><span></span></div>
           <div class="swap-item"><span>🍝 Pasta fredda + tonno</span><span></span></div>
           <div class="swap-item"><span>🍔 Burger bowl: macinato + patate</span><span></span></div>
-          <div class="swap-item"><span>🍳 Uova + pane + avocado (SOS)</span><span></span></div>
+          <div class="swap-item"><span>🥟 Gnocchi e salmone</span><span></span></div>
+          <div class="swap-item"><span>🍳 Toast uova + avocado (SOS)</span><span></span></div>
         </div>
       </div>
     </div>
 
     <div class="callout">
       <span class="ci">🍕</span>
-      <div><h4>Giovedì — la pizza è dentro il piano</h4>
-      <p>La pizza wurstel e patatine del giovedì resta. Tieni colazione, spuntini e pranzo proteici e leggeri (versione OFF): arrivi a sera già a ~120 g di proteine, così la pizza pesa solo su carbo e grassi, non sul muscolo. Vale ~1.200–1.400 kcal → la giornata chiude intorno al mantenimento, che il giovedì sia riposo (Opzione A) o allenamento (Opzione B). Un singolo giorno alto a settimana <b>aiuta</b> il cut: ricarica il glicogeno e dà respiro mentale. La media settimanale resta perfetta.</p></div>
+      <div><h4>Giovedì — la pizza ora lavora per te</h4>
+      <p>La pizza wurstel e patatine del giovedì resta, e in bulk smette di essere uno strappo: è surplus programmato. Mangia normale durante il giorno (ON o OFF secondo calendario, saltando la cena prevista) e la pizza chiude la giornata a ~3.400–3.600 kcal — esattamente dove serve. Niente compensazioni prima, niente sensi di colpa dopo: un pasto libero a settimana tiene alta l'aderenza per 29 settimane, ed è l'aderenza che ti porta a 100.</p></div>
     </div>
 
   </div>
@@ -489,58 +527,61 @@
   <!-- ===================== WORKOUT ===================== -->
   <div id="workout" class="section">
     <div class="section-title">Split 4 Giorni (+1 opzionale) · Upper / Lower ×2</div>
-    <div class="section-sub">Ogni gruppo muscolare 2×/settimana — a parità di volume la doppia frequenza batte la singola per ipertrofia e ritenzione (Schoenfeld 2016). Serie dritte, RIR 1-2, eccentrica 2-3 sec. <b style="color:var(--orange)">Petto = priorità</b>: 2 esercizi su ogni Upper, ~14 serie/sett. Ogni giorno ha un focus: <b style="color:var(--text)">Upper A petto+dorso</b>, <b style="color:var(--text)">Upper B petto+spalle</b>. <b style="color:var(--text)">Braccia 2×</b>: bicipiti su entrambe le Upper (EZ il Day 1, manubri il Day 3), tricipiti tra push-down (Day 1) e dip (Day 3).</div>
+    <div class="section-sub">Stesso scheletro che ha funzionato nel cut — ogni gruppo 2×/settimana (Schoenfeld 2016) — ma filosofia ribaltata: <b style="color:var(--ice)">in surplus la progressione è l'obiettivo n°1</b>. Serie dritte, RIR 1-2 sui fondamentali, ultime serie degli accessori spinte a RIR 0-1, eccentrica 2-3 sec. Volume su (~88 serie/sett): ora hai le calorie per recuperarlo. <b style="color:var(--text)">Upper A petto+dorso pesante</b> · <b style="color:var(--text)">Upper B spalle+petto volume</b> · <b style="color:var(--text)">Lower A squat</b> · <b style="color:var(--text)">Lower B stacco</b> — il pesante da terra torna protagonista. Addome e face pull ora sono nel programma, non opzionali.</div>
 
     <div class="workout-grid">
 
       <div class="day-card upper">
-        <div class="day-header"><div class="day-top"><span class="day-title">Day 1 · Upper A</span><span class="day-tag">Forza</span></div><div class="day-focus">Petto + Dorso · orizzontale</div></div>
+        <div class="day-header"><div class="day-top"><span class="day-title">Day 1 · Upper A</span><span class="day-tag">Pesante</span></div><div class="day-focus">Petto + Dorso · spinta e tirata orizzontale</div></div>
         <div class="ex-head"><span>#</span><span>Esercizio</span><span>Serie×Rip</span><span>Rec</span></div>
         <div class="exercise-list">
-          <div class="exercise-row"><span class="ex-num">1</span><span class="ex-name">Panca piana bilanciere<span class="ex-aim">petto · forza · 100 kg (RIR 2)</span></span><span class="ex-sets">4×5</span><span class="ex-rest">3′</span></div>
-          <div class="exercise-row"><span class="ex-num">2</span><span class="ex-name">Rematore bilanciere<span class="ex-aim">dorso · spessore</span></span><span class="ex-sets">4×6</span><span class="ex-rest">2.5′</span></div>
-          <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Chest press / Croci ai cavi<span class="ex-aim">petto · 2° esercizio</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">90″</span></div>
-          <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Lat machine / Trazioni<span class="ex-aim">dorso · ampiezza</span></span><span class="ex-sets">3×8–10</span><span class="ex-rest">2′</span></div>
-          <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Push-down tricipiti<span class="ex-aim">tricipiti · diretto</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">75″</span></div>
-          <div class="exercise-row"><span class="ex-num">6</span><span class="ex-name">Alzate laterali<span class="ex-aim">spalle · larghezza (priorità estetica)</span></span><span class="ex-sets">4×12–15</span><span class="ex-rest">60″</span></div>
-          <div class="exercise-row"><span class="ex-num">7</span><span class="ex-name">Curl bilanciere EZ<span class="ex-aim">bicipiti · diretto (porta le braccia a 2×)</span></span><span class="ex-sets">3×8–12</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">1</span><span class="ex-name">Panca piana bilanciere<span class="ex-aim">petto · progressione · start 100 kg</span></span><span class="ex-sets">4×5–6</span><span class="ex-rest">3′</span></div>
+          <div class="exercise-row"><span class="ex-num">2</span><span class="ex-name">Rematore bilanciere<span class="ex-aim">dorso · spessore · start 70 kg</span></span><span class="ex-sets">4×6–8</span><span class="ex-rest">2.5′</span></div>
+          <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Panca inclinata manubri<span class="ex-aim">petto alto · start 32 kg/man.</span></span><span class="ex-sets">3×8–10</span><span class="ex-rest">2′</span></div>
+          <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Lat machine / Trazioni zavorrate<span class="ex-aim">dorso · ampiezza</span></span><span class="ex-sets">3×8–10</span><span class="ex-rest">2′</span></div>
+          <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Alzate laterali<span class="ex-aim">spalle · larghezza (priorità estetica)</span></span><span class="ex-sets">4×12–15</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">6</span><span class="ex-name">Curl bilanciere EZ<span class="ex-aim">bicipiti · diretto</span></span><span class="ex-sets">3×8–12</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">7</span><span class="ex-name">Push-down tricipiti<span class="ex-aim">tricipiti · diretto</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">60″</span></div>
         </div>
       </div>
 
       <div class="day-card lower">
-        <div class="day-header"><div class="day-top"><span class="day-title">Day 2 · Lower A</span><span class="day-tag">Forza</span></div><div class="day-focus">Squat &amp; quadricipiti</div></div>
+        <div class="day-header"><div class="day-top"><span class="day-title">Day 2 · Lower A</span><span class="day-tag">Squat</span></div><div class="day-focus">Quadricipiti · gamba pesante</div></div>
         <div class="ex-head"><span>#</span><span>Esercizio</span><span>Serie×Rip</span><span>Rec</span></div>
         <div class="exercise-list">
-          <div class="exercise-row"><span class="ex-num">1</span><span class="ex-name">Squat bilanciere<span class="ex-aim">forza gambe · 120 kg (RIR 1-2)</span></span><span class="ex-sets">4×5</span><span class="ex-rest">3′</span></div>
-          <div class="exercise-row"><span class="ex-num">2</span><span class="ex-name">Stacco rumeno (RDL)<span class="ex-aim">femorali/glutei · 120 kg</span></span><span class="ex-sets">3×8</span><span class="ex-rest">2.5′</span></div>
-          <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Leg press<span class="ex-aim">volume quadricipiti</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">90″</span></div>
+          <div class="exercise-row"><span class="ex-num">1</span><span class="ex-name">Squat bilanciere<span class="ex-aim">forza gambe · start 120 kg</span></span><span class="ex-sets">4×5–6</span><span class="ex-rest">3′</span></div>
+          <div class="exercise-row"><span class="ex-num">2</span><span class="ex-name">Stacco rumeno (RDL)<span class="ex-aim">femorali/glutei · start 120 kg</span></span><span class="ex-sets">3×8</span><span class="ex-rest">2.5′</span></div>
+          <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Leg press<span class="ex-aim">quadricipiti · volume</span></span><span class="ex-sets">4×10–12</span><span class="ex-rest">90″</span></div>
           <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Leg curl seduto<span class="ex-aim">femorali</span></span><span class="ex-sets">3×12–15</span><span class="ex-rest">60″</span></div>
-          <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Calf in piedi<span class="ex-aim">polpacci · pausa 1″</span></span><span class="ex-sets">4×12–15</span><span class="ex-rest">45″</span></div>
+          <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Calf in piedi<span class="ex-aim">polpacci · pausa 1″ in basso</span></span><span class="ex-sets">4×12–15</span><span class="ex-rest">45″</span></div>
+          <div class="exercise-row"><span class="ex-num">6</span><span class="ex-name">Crunch ai cavi<span class="ex-aim">addome · zavorrato, progressivo</span></span><span class="ex-sets">3×12–15</span><span class="ex-rest">45″</span></div>
         </div>
       </div>
 
       <div class="day-card upper">
-        <div class="day-header"><div class="day-top"><span class="day-title">Day 3 · Upper B</span><span class="day-tag">Ipertrofia</span></div><div class="day-focus">Petto + Spalle · inclinata</div></div>
+        <div class="day-header"><div class="day-top"><span class="day-title">Day 3 · Upper B</span><span class="day-tag">Ipertrofia</span></div><div class="day-focus">Spalle + Petto · volume e allungamento</div></div>
         <div class="ex-head"><span>#</span><span>Esercizio</span><span>Serie×Rip</span><span>Rec</span></div>
         <div class="exercise-list">
-          <div class="exercise-row"><span class="ex-num">1</span><span class="ex-name">Panca inclinata manubri<span class="ex-aim">petto alto · ~30 kg/man.</span></span><span class="ex-sets">4×8–10</span><span class="ex-rest">2.5′</span></div>
-          <div class="exercise-row"><span class="ex-num">2</span><span class="ex-name">Lento avanti bilanciere<span class="ex-aim">spalle · forza · ~45 kg</span></span><span class="ex-sets">4×6–8</span><span class="ex-rest">2′</span></div>
-          <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Dip alle parallele<span class="ex-aim">petto/tricipiti · zavorrate o c.libero</span></span><span class="ex-sets">3×8–12</span><span class="ex-rest">90″</span></div>
-          <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Alzate laterali<span class="ex-aim">spalle · deltoide laterale</span></span><span class="ex-sets">4×12–15</span><span class="ex-rest">60″</span></div>
-          <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Curl manubri<span class="ex-aim">bicipiti · diretto</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">60″</span></div>
-          <div class="exercise-row"><span class="ex-num">6</span><span class="ex-name">Trazioni / Lat<span class="ex-aim">dorso · mantenimento</span></span><span class="ex-sets">3×8–10</span><span class="ex-rest">90″</span></div>
+          <div class="exercise-row"><span class="ex-num">1</span><span class="ex-name">Lento avanti bilanciere<span class="ex-aim">spalle · progressione · start 47,5 kg</span></span><span class="ex-sets">4×6–8</span><span class="ex-rest">2.5′</span></div>
+          <div class="exercise-row"><span class="ex-num">2</span><span class="ex-name">Dip alle parallele<span class="ex-aim">petto basso/tricipiti · zavorrate</span></span><span class="ex-sets">3×8–12</span><span class="ex-rest">2′</span></div>
+          <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Croci ai cavi / pec deck<span class="ex-aim">petto · enfasi in allungamento</span></span><span class="ex-sets">3×12–15</span><span class="ex-rest">75″</span></div>
+          <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Rematore manubrio / pulley<span class="ex-aim">dorso · spessore, 2° stimolo</span></span><span class="ex-sets">3×8–10</span><span class="ex-rest">90″</span></div>
+          <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Alzate laterali<span class="ex-aim">deltoide laterale</span></span><span class="ex-sets">4×12–15</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">6</span><span class="ex-name">Face pull<span class="ex-aim">deltoide post. · salute spalla</span></span><span class="ex-sets">3×15–20</span><span class="ex-rest">45″</span></div>
+          <div class="exercise-row"><span class="ex-num">7</span><span class="ex-name">Curl manubri su inclinata<span class="ex-aim">bicipiti · stretch capo lungo</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">60″</span></div>
         </div>
       </div>
 
       <div class="day-card lower">
-        <div class="day-header"><div class="day-top"><span class="day-title">Day 4 · Lower B</span><span class="day-tag">Ipertrofia</span></div><div class="day-focus">Glutei + quad · leggera sulla colonna</div></div>
+        <div class="day-header"><div class="day-top"><span class="day-title">Day 4 · Lower B</span><span class="day-tag">Stacco</span></div><div class="day-focus">Catena posteriore + volume quadricipiti</div></div>
         <div class="ex-head"><span>#</span><span>Esercizio</span><span>Serie×Rip</span><span>Rec</span></div>
         <div class="exercise-list">
-          <div class="exercise-row"><span class="ex-num">1</span><span class="ex-name">Hip thrust bilanciere<span class="ex-aim">glutei · main</span></span><span class="ex-sets">4×8–10</span><span class="ex-rest">2′</span></div>
-          <div class="exercise-row"><span class="ex-num">2</span><span class="ex-name">Hack squat / Pressa<span class="ex-aim">quadricipiti · volume</span></span><span class="ex-sets">4×10–12</span><span class="ex-rest">90″</span></div>
-          <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Stacco rumeno / trap bar<span class="ex-aim">hinge controllato · no max</span></span><span class="ex-sets">3×8</span><span class="ex-rest">2′</span></div>
-          <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Leg curl sdraiato<span class="ex-aim">femorali · altro angolo</span></span><span class="ex-sets">3×12</span><span class="ex-rest">60″</span></div>
+          <div class="exercise-row"><span class="ex-num">1</span><span class="ex-name">Stacco da terra<span class="ex-aim">il pesante torna · start 150 kg</span></span><span class="ex-sets">3×4–6</span><span class="ex-rest">3.5′</span></div>
+          <div class="exercise-row"><span class="ex-num">2</span><span class="ex-name">Pressa 45° / Hack squat<span class="ex-aim">quadricipiti · volume</span></span><span class="ex-sets">4×10–12</span><span class="ex-rest">90″</span></div>
+          <div class="exercise-row"><span class="ex-num">3</span><span class="ex-name">Hip thrust bilanciere<span class="ex-aim">glutei</span></span><span class="ex-sets">3×8–10</span><span class="ex-rest">2′</span></div>
+          <div class="exercise-row"><span class="ex-num">4</span><span class="ex-name">Leg curl sdraiato<span class="ex-aim">femorali · altro angolo</span></span><span class="ex-sets">3×10–12</span><span class="ex-rest">60″</span></div>
           <div class="exercise-row"><span class="ex-num">5</span><span class="ex-name">Calf seduto<span class="ex-aim">soleo</span></span><span class="ex-sets">4×15</span><span class="ex-rest">45″</span></div>
+          <div class="exercise-row"><span class="ex-num">6</span><span class="ex-name">Plank zavorrato / ab-wheel<span class="ex-aim">core · anti-estensione</span></span><span class="ex-sets">3×max</span><span class="ex-rest">45″</span></div>
         </div>
       </div>
 
@@ -560,7 +601,7 @@
 
     </div>
 
-    <div style="font-size:12px;color:var(--muted);margin-top:14px;line-height:1.55;font-style:italic">Opzionali, se hai tempo e voglia (non necessari per il mantenimento): <b style="color:var(--text)">addome</b> 2-3 serie alla fine di una Lower, 2×/sett · <b style="color:var(--text)">face pull</b> 2×15 a fine Upper per la salute della spalla · <b style="color:var(--text)">braccia 2×</b> — aggiungi un curl al Day 1 o un push-down al Day 3 se vuoi più volume diretto. Bicipiti e tricipiti ricevono comunque tanto lavoro indiretto da rematori, trazioni e distensioni.</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:14px;line-height:1.55;font-style:italic">Il <b style="color:var(--purple)">Day 5</b> resta opzionale: quando lo fai conta come giorno ON e lo incastri dove vuoi (anche dopo una seduta pesante, non tassa i grandi movimenti). Se lo salti, il programma sta in piedi da solo su 4 giorni: addome e face pull ora sono già dentro le sedute principali.</div>
 
     <div class="section-title" style="margin-top:34px">Palestra piena? Piano B</div>
     <div class="section-sub">200 persone e la postazione è occupata? Non aspettare e non saltare: sostituisci con un movimento dello stesso pattern. Stessi muscoli, stesso stimolo. I manubri sono il tuo jolly — ce ne sono sempre più copie e non si "prenotano".</div>
@@ -592,38 +633,38 @@
     </div>
     <div style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.55;font-style:italic">Regola d'oro nei giorni di ressa: <b style="color:var(--text)">parti sempre dal fondamentale pesante</b> (panca/squat/stacco) appena trovi la postazione libera — è quello che non puoi rimandare. Gli accessori li incastri dove capita: per quelli la sostituzione costa zero.</div>
 
-    <div class="section-title" style="margin-top:34px">Carichi di partenza &amp; progressione</div>
-    <div class="section-sub">Tarati sui tuoi numeri reali. Sui fondamentali parti così; gli accessori li imposti a sensazione (peso che chiude la 1ª serie a RIR 2, lo tieni su tutte le serie).</div>
+    <div class="section-title" style="margin-top:34px">Carichi di partenza &amp; obiettivi di marzo</div>
+    <div class="section-sub">Start tarato sui carichi tenuti nel cut — le prime 2 settimane servono a riprendere il ritmo, poi si sale. Gli obiettivi di marzo sono realistici per 29 settimane in surplus al tuo livello: se la bilancia sale e questi numeri salgono con lei, i 7 kg saranno in gran parte muscolo.</div>
     <div class="table-wrap">
       <table class="summary-table">
-        <thead><tr><th>Esercizio</th><th>Schema</th><th style="color:var(--orange)">Carico start</th><th>Note</th></tr></thead>
+        <thead><tr><th>Esercizio</th><th>Schema</th><th style="color:var(--ice)">Start</th><th style="color:var(--green)">Obiettivo marzo</th><th>Note</th></tr></thead>
         <tbody>
-          <tr><td>Panca piana</td><td class="m">4×5</td><td class="m" style="color:var(--orange)">100 kg</td><td>Il tuo 100×6 → a 4×5 resti a RIR 2-3. Perfetto in cut.</td></tr>
-          <tr><td>Squat</td><td class="m">4×5</td><td class="m" style="color:var(--orange)">120 kg</td><td>Identico al tuo attuale, RIR 1-2.</td></tr>
-          <tr><td>Stacco (hinge controllato)</td><td class="m">3×8</td><td class="m" style="color:var(--orange)">~120 kg</td><td>In cut niente max da terra: RDL o trap bar a RIR 2-3. Se vuoi tenere il pesante (i tuoi 170), fallo 3×3 submassimale, mai a cedimento, e tieni lo squat come unico vero giorno pesante.</td></tr>
-          <tr><td>Stacco rumeno (RDL)</td><td class="m">3×8</td><td class="m" style="color:var(--orange)">120 kg</td><td>Uguale al tuo.</td></tr>
-          <tr><td>Lento avanti (bil. o man.)</td><td class="m">4×6–8</td><td class="m" style="color:var(--orange)">~45 kg / 15 man.</td><td>Bilanciere è stima; coi manubri usi i tuoi 15 kg/lato. Day B.</td></tr>
-          <tr><td>Panca inclinata manubri</td><td class="m">4×8–10</td><td class="m" style="color:var(--orange)">~30 kg/man.</td><td>Stima dal tuo bench — regola alla 1ª serie.</td></tr>
-          <tr><td>Lento avanti bilanciere</td><td class="m">3×6–8</td><td class="m" style="color:var(--orange)">~45 kg</td><td>Stima — sali se troppo facile.</td></tr>
-          <tr><td>Accessori &amp; macchine</td><td class="m">—</td><td class="m" style="color:var(--muted)">a sensazione</td><td>Leg press, curl, alzate, hip thrust, ecc.: scegli il peso a RIR 2.</td></tr>
+          <tr><td>Panca piana</td><td class="m">4×5–6</td><td class="m" style="color:var(--ice)">100 kg</td><td class="m" style="color:var(--green)">112,5–115 ×5</td><td>+2,5 kg ogni volta che chiudi 4×6. Est. 1RM ~130 a fine blocco.</td></tr>
+          <tr><td>Squat</td><td class="m">4×5–6</td><td class="m" style="color:var(--ice)">120 kg</td><td class="m" style="color:var(--green)">140 ×5</td><td>+2,5–5 kg a progressione chiusa. Profondità prima del carico. Est. 1RM ~160.</td></tr>
+          <tr><td>Stacco da terra</td><td class="m">3×4–6</td><td class="m" style="color:var(--ice)">150 kg</td><td class="m" style="color:var(--green)">180 ×4</td><td>Il 75% del tuo 200: risali graduale, mai a cedimento. Territorio nuovo PR (205-210) in primavera.</td></tr>
+          <tr><td>Stacco rumeno (RDL)</td><td class="m">3×8</td><td class="m" style="color:var(--ice)">120 kg</td><td class="m" style="color:var(--green)">140 ×8</td><td>Allungamento sotto controllo: il carico segue la tecnica.</td></tr>
+          <tr><td>Lento avanti bilanciere</td><td class="m">4×6–8</td><td class="m" style="color:var(--ice)">47,5 kg</td><td class="m" style="color:var(--green)">57,5–60 ×6</td><td>Il press sale lento: usa i microcarichi da 1,25 se la palestra li ha.</td></tr>
+          <tr><td>Panca inclinata manubri</td><td class="m">3×8–10</td><td class="m" style="color:var(--ice)">32 kg/man.</td><td class="m" style="color:var(--green)">38–40 ×8</td><td>Scapole ferme, scendi profondo: lo stretch vale più del carico.</td></tr>
+          <tr><td>Rematore bilanciere</td><td class="m">4×6–8</td><td class="m" style="color:var(--ice)">70 kg</td><td class="m" style="color:var(--green)">85 ×6</td><td>Busto fermo: se serve lo slancio, il carico è troppo.</td></tr>
+          <tr><td>Accessori &amp; macchine</td><td class="m">—</td><td class="m" style="color:var(--muted)">RIR 1–2</td><td class="m" style="color:var(--muted)">doppia progressione</td><td>Chiudi il range in cima → +peso e riparti dal fondo.</td></tr>
         </tbody>
       </table>
     </div>
     <div class="rules-grid" style="margin-top:14px">
-      <div class="rule-card"><span class="rule-icon">📈</span><span class="rule-text"><strong>Come progredire</strong>Resta nel range. Quando chiudi tutte le serie in cima al range a RIR 2, +2,5 kg (alto) o +5 kg (basso) la volta dopo e riparti dal fondo del range.</span></div>
-      <div class="rule-card"><span class="rule-icon">🎯</span><span class="rule-text"><strong>Obiettivo in cut</strong>Non rincorrere i PR: questi carichi vanno <em>mantenuti</em>. Se reggi 100/120/170 mentre la bilancia scende, stai conservando il muscolo. Quello è il vero "PR".</span></div>
-      <div class="rule-card"><span class="rule-icon">🔥</span><span class="rule-text"><strong>Riscaldamento</strong>Sul 1° fondamentale: rampa in 3-4 serie leggere (bilanciere → 50% → 70% → 85%) prima delle serie allenanti. Non contano nel volume.</span></div>
+      <div class="rule-card"><span class="rule-icon">📈</span><span class="rule-text"><strong>Come progredire</strong>Doppia progressione: resta nel range, quando chiudi tutte le serie in cima a RIR 1-2 → +2,5 kg (alto corpo) o +5 kg (basso) e riparti dal fondo del range.</span></div>
+      <div class="rule-card"><span class="rule-icon">🎯</span><span class="rule-text"><strong>Obiettivo in bulk</strong>Qui i PR si inseguono. Il carico che sale è la prova che il surplus sta diventando muscolo e non grasso: se per 3 settimane sali di peso ma non di carichi, qualcosa va rivisto (sonno, recupero, tecnica).</span></div>
+      <div class="rule-card"><span class="rule-icon">🔥</span><span class="rule-text"><strong>Riscaldamento</strong>Sul 1° fondamentale: rampa in 3-4 serie leggere (bilanciere → 50% → 70% → 85%) prima delle serie allenanti. Sullo stacco aggiungi uno step a 90%. Non contano nel volume.</span></div>
     </div>
 
     <div class="section-title" style="margin-top:34px">Calendario settimanale</div>
-    <div class="section-sub">Due opzioni sui tuoi giorni reali. In entrambe le due Lower restano a 72h di distanza (stacco e squat tassano la stessa zona) e ogni coppia di giorni consecutivi è sempre Upper + Lower.</div>
+    <div class="section-sub">Due opzioni sui tuoi giorni reali. In entrambe le due Lower restano a 72h di distanza (squat e stacco tassano la stessa zona) e ogni coppia di giorni consecutivi è sempre Upper + Lower.</div>
 
     <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--blue);margin:18px 0 8px;text-transform:uppercase">Opzione A · Mar-Mer-Ven-Sab/Dom</div>
     <div class="week-grid">
       <div class="week-day"><div class="wd-name">Lun</div><div class="wd-tag wd-rest">Riposo</div><div class="wd-diet wd-off">OFF</div></div>
       <div class="week-day"><div class="wd-name">Mar</div><div class="wd-tag wd-upper">Upper A</div><div class="wd-diet wd-on">ON</div></div>
       <div class="week-day"><div class="wd-name">Mer</div><div class="wd-tag wd-lower">Lower A</div><div class="wd-diet wd-on">ON</div></div>
-      <div class="week-day"><div class="wd-name">Gio</div><div class="wd-tag wd-rest">Riposo<br>LISS</div><div class="wd-diet wd-pizza">OFF 🍕</div></div>
+      <div class="week-day"><div class="wd-name">Gio</div><div class="wd-tag wd-rest">Riposo<br>passi</div><div class="wd-diet wd-pizza">OFF 🍕</div></div>
       <div class="week-day"><div class="wd-name">Ven</div><div class="wd-tag wd-upper">Upper B</div><div class="wd-diet wd-on">ON</div></div>
       <div class="week-day"><div class="wd-name">Sab</div><div class="wd-tag wd-lower">Lower B</div><div class="wd-diet wd-on">ON</div></div>
       <div class="week-day"><div class="wd-name">Dom</div><div class="wd-tag" style="color:var(--purple)">Day 5<br>opz.</div><div class="wd-diet" style="color:var(--muted)">OFF/ON</div></div>
@@ -633,24 +674,24 @@
     <div class="week-grid">
       <div class="week-day"><div class="wd-name">Lun</div><div class="wd-tag wd-rest">Riposo</div><div class="wd-diet wd-off">OFF</div></div>
       <div class="week-day"><div class="wd-name">Mar</div><div class="wd-tag wd-lower">Lower A</div><div class="wd-diet wd-on">ON</div></div>
-      <div class="week-day"><div class="wd-name">Mer</div><div class="wd-tag wd-rest">Riposo<br>LISS</div><div class="wd-diet wd-off">OFF</div></div>
+      <div class="week-day"><div class="wd-name">Mer</div><div class="wd-tag wd-rest">Riposo<br>passi</div><div class="wd-diet wd-off">OFF</div></div>
       <div class="week-day"><div class="wd-name">Gio</div><div class="wd-tag wd-upper">Upper A</div><div class="wd-diet wd-pizza">ON 🍕</div></div>
       <div class="week-day"><div class="wd-name">Ven</div><div class="wd-tag wd-lower">Lower B</div><div class="wd-diet wd-on">ON</div></div>
       <div class="week-day"><div class="wd-name">Sab</div><div class="wd-tag wd-upper">Upper B</div><div class="wd-diet wd-on">ON</div></div>
       <div class="week-day"><div class="wd-name">Dom</div><div class="wd-tag" style="color:var(--purple)">Day 5<br>opz.</div><div class="wd-diet" style="color:var(--muted)">OFF/ON</div></div>
     </div>
-    <div style="font-size:11px;color:var(--muted);margin-top:10px;font-style:italic">Il 4° allenamento può cadere sabato o domenica: se scegli domenica, sposta lì l'ultima seduta e tieni libero il sabato. La pizza del giovedì resta dov'è — in Opzione A cade in un giorno di riposo, in Opzione B in un giorno ON (mangi ON di giorno e la pizza sostituisce la cena). <b style="color:var(--purple)">Day 5 (braccia+spalle):</b> opzionale, a bassa fatica — incastralo la domenica o in un qualsiasi giorno libero, anche dopo una seduta pesante (non tassa i grandi movimenti). Quando lo fai, conta come giorno ON leggero.</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:10px;font-style:italic">Il 4° allenamento può cadere sabato o domenica: se scegli domenica, sposta lì l'ultima seduta. La pizza del giovedì resta dov'è — in Opzione A cade in un giorno di riposo (mangi OFF di giorno, la pizza sostituisce la cena), in Opzione B in un giorno ON (idem, sostituisce la cena ON). <b style="color:var(--purple)">Day 5 (braccia+spalle):</b> opzionale — quando lo fai, conta come giorno ON.</div>
 
     <div class="section-title" style="margin-top:34px">Regole fondamentali</div>
     <div class="rules-grid">
-      <div class="rule-card"><span class="rule-icon">💪</span><span class="rule-text"><strong>Mantieni i carichi</strong>In cut l'obiettivo non sono i PR: è non perdere peso sui bilancieri. Carichi stabili = muscolo difeso. È il tuo indicatore numero uno.</span></div>
-      <div class="rule-card"><span class="rule-icon">🎯</span><span class="rule-text"><strong>RIR 1–2</strong>Niente cedimento sistematico. In deficit il recupero rallenta: lavora intenso ma lascia 1–2 colpi in canna, soprattutto sui fondamentali.</span></div>
-      <div class="rule-card"><span class="rule-icon">📈</span><span class="rule-text"><strong>Doppia progressione</strong>Resta nel range; quando lo chiudi tutto al RIR target, aggiungi il carico minimo e riparti dal basso. Non aspettarti grandi salti in deficit.</span></div>
-      <div class="rule-card"><span class="rule-icon">⏱</span><span class="rule-text"><strong>72h tra le Lower</strong>Stacco e squat tassano la stessa zona. In entrambe le opzioni qui sotto le due Lower sono già distanziate di 72h: non invertirle.</span></div>
-      <div class="rule-card"><span class="rule-icon">🚶</span><span class="rule-text"><strong>NEAT &amp; LISS</strong>8.000–10.000 passi/die + 2 camminate da 20–30′. È la leva che brucia di più senza intaccare il recupero in palestra.</span></div>
-      <div class="rule-card"><span class="rule-icon">🔄</span><span class="rule-text"><strong>Deload</strong>Ogni 5–6 settimane: volume −40%, carichi al ~70%. In deficit recuperi peggio: il deload tiene alti i carichi nel lungo periodo.</span></div>
-      <div class="rule-card"><span class="rule-icon">📅</span><span class="rule-text"><strong>Durata del blocco</strong>Tieni questa routine per tutto il cut — da giugno a settembre, ~12-14 settimane, con deload alle settimane 6 e 12. Non serve cambiare esercizi a calendario: la costanza e il sovraccarico contano più della varietà. A settembre rivaluti su fisico e carichi, poi passi a mantenimento o lieve massa.</span></div>
-      <div class="rule-card"><span class="rule-icon">🏆</span><span class="rule-text"><strong>Estetica natural</strong>Per quel look i muscoli chiave sono spalle (larghezza), petto (pienezza) e braccia, più una vita asciutta. Petto 2× con 2 esercizi, braccia ora 2×, laterali in priorità (spingibili a 12-15/sett). La definizione e l'addome li fa il cut, non i farmaci: quella parte è tutta tua. La forma è replicabile da natural; la densità estrema del riferimento no. Con un 5° giorno futuro (braccia+spalle) ti avvicini di più.</span></div>
+      <div class="rule-card"><span class="rule-icon">📈</span><span class="rule-text"><strong>Progressione = priorità n°1</strong>In bulk i carichi devono salire, quasi ogni settimana sugli accessori, ogni 2-3 sui fondamentali. È il segnale che i kg in più sono muscolo. Segna tutto: quaderno o app, ma segna.</span></div>
+      <div class="rule-card"><span class="rule-icon">🎯</span><span class="rule-text"><strong>RIR 1–2, spingi il finale</strong>Fondamentali sempre a RIR 1-2. Sugli accessori l'ultima serie può arrivare a RIR 0-1: in surplus recuperi, sfruttalo.</span></div>
+      <div class="rule-card"><span class="rule-icon">⏱</span><span class="rule-text"><strong>72h tra le Lower</strong>Squat e stacco tassano la stessa zona lombare. In entrambe le opzioni le due Lower sono già distanziate: non invertirle.</span></div>
+      <div class="rule-card"><span class="rule-icon">🍚</span><span class="rule-text"><strong>Non saltare i pasti</strong>Il surplus si costruisce a tavola, pasto dopo pasto. Se ne salti uno, recupera i carbo a cena: la giornata deve chiudere sul target.</span></div>
+      <div class="rule-card"><span class="rule-icon">🚶</span><span class="rule-text"><strong>NEAT 7-8.000 passi</strong>Restano, per salute, appetito e sensibilità insulinica. Niente cardio aggressivo che rubi recupero: 1-2 camminate tranquille bastano.</span></div>
+      <div class="rule-card"><span class="rule-icon">🔄</span><span class="rule-text"><strong>Deload programmati</strong>Settimane 7 · 13 · 18 (Natale, cade perfetto) · 24: volume −40%, carichi al ~70%. In un blocco di 29 settimane i deload non sono pause: sono ciò che ti fa arrivare a marzo ancora in spinta.</span></div>
+      <div class="rule-card"><span class="rule-icon">😴</span><span class="rule-text"><strong>Sonno 7-8h</strong>La crescita avviene di notte: GH e sintesi proteica lavorano mentre dormi. Il surplus non compensa le nottate — in inverno vai a letto presto, tanto fuori fa freddo.</span></div>
+      <div class="rule-card"><span class="rule-icon">📅</span><span class="rule-text"><strong>Durata del blocco</strong>29 settimane, 24 agosto → metà marzo, stessa routine con deload programmati. A marzo si rivaluta su specchio, bilancia e carichi: mini-cut primaverile o mantenimento. La costanza batte la varietà, sempre.</span></div>
     </div>
   </div>
 
@@ -661,52 +702,53 @@
       <table class="summary-table">
         <thead><tr><th>Pasto</th><th style="color:var(--yellow)">kcal ON</th><th style="color:var(--protein)">P</th><th style="color:var(--carbs)">C</th><th style="color:var(--fat)">G</th><th style="color:var(--orange)">kcal OFF</th></tr></thead>
         <tbody>
-          <tr><td>🌅 Colazione</td><td class="m" style="color:var(--yellow)">618</td><td class="m" style="color:var(--protein)">42</td><td class="m" style="color:var(--carbs)">82</td><td class="m" style="color:var(--fat)">13</td><td class="m" style="color:var(--orange)">506</td></tr>
-          <tr><td>🥛 Spuntino AM</td><td class="m" style="color:var(--yellow)">279</td><td class="m" style="color:var(--protein)">29</td><td class="m" style="color:var(--carbs)">29</td><td class="m" style="color:var(--fat)">6</td><td class="m" style="color:var(--orange)">221</td></tr>
-          <tr><td>🍚 Pranzo</td><td class="m" style="color:var(--yellow)">699</td><td class="m" style="color:var(--protein)">49</td><td class="m" style="color:var(--carbs)">93</td><td class="m" style="color:var(--fat)">14</td><td class="m" style="color:var(--orange)">572</td></tr>
-          <tr><td>⚡ Pre/Post · 🥤 PM</td><td class="m" style="color:var(--yellow)">345</td><td class="m" style="color:var(--protein)">33</td><td class="m" style="color:var(--carbs)">50</td><td class="m" style="color:var(--fat)">3</td><td class="m" style="color:var(--orange)">300</td></tr>
-          <tr><td>🥩 Cena</td><td class="m" style="color:var(--yellow)">581</td><td class="m" style="color:var(--protein)">53</td><td class="m" style="color:var(--carbs)">64</td><td class="m" style="color:var(--fat)">12</td><td class="m" style="color:var(--orange)">620</td></tr>
-          <tr class="total-row"><td>TOTALE</td><td style="color:var(--yellow)">2.521</td><td style="color:var(--protein)">205g</td><td style="color:var(--carbs)">319g</td><td style="color:var(--fat)">47g</td><td style="color:var(--orange)">2.220</td></tr>
+          <tr><td>🌅 Colazione</td><td class="m" style="color:var(--yellow)">840</td><td class="m" style="color:var(--protein)">47</td><td class="m" style="color:var(--carbs)">117</td><td class="m" style="color:var(--fat)">20</td><td class="m" style="color:var(--orange)">610</td></tr>
+          <tr><td>🥛 Spuntino AM</td><td class="m" style="color:var(--yellow)">525</td><td class="m" style="color:var(--protein)">33</td><td class="m" style="color:var(--carbs)">57</td><td class="m" style="color:var(--fat)">17</td><td class="m" style="color:var(--orange)">425</td></tr>
+          <tr><td>🍚 Pranzo</td><td class="m" style="color:var(--yellow)">960</td><td class="m" style="color:var(--protein)">56</td><td class="m" style="color:var(--carbs)">147</td><td class="m" style="color:var(--fat)">14</td><td class="m" style="color:var(--orange)">655</td></tr>
+          <tr><td>⚡ Pre/Post · 🥤 PM</td><td class="m" style="color:var(--yellow)">445</td><td class="m" style="color:var(--protein)">33</td><td class="m" style="color:var(--carbs)">72</td><td class="m" style="color:var(--fat)">3</td><td class="m" style="color:var(--orange)">350</td></tr>
+          <tr><td>🥩 Cena</td><td class="m" style="color:var(--yellow)">755</td><td class="m" style="color:var(--protein)">58</td><td class="m" style="color:var(--carbs)">88</td><td class="m" style="color:var(--fat)">16</td><td class="m" style="color:var(--orange)">745</td></tr>
+          <tr class="total-row"><td>TOTALE</td><td style="color:var(--yellow)">3.525</td><td style="color:var(--protein)">227g</td><td style="color:var(--carbs)">481g</td><td style="color:var(--fat)">70g</td><td style="color:var(--orange)">2.785</td></tr>
         </tbody>
       </table>
     </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:8px;font-style:italic">Le colonne P/C/G si riferiscono al giorno ON. Giorno OFF: P 203g · C 314g · G 77g. Su 91,5 kg: proteine 2,2-2,5 g/kg, grassi 0,75-0,85 g/kg — entrambi nei range ottimali per la massa.</div>
 
     <div class="callout" style="background:rgba(74,222,128,.06);border-color:rgba(74,222,128,.22)">
       <span class="ci">⚖️</span>
       <div><h4 style="color:var(--green)">La leva — come regolare</h4>
-      <p>Pesati 3–4 mattine/sett a digiuno e guarda la <b>media settimanale</b>. Cali 0,4–0,7 kg/sett → non toccare nulla. Fermo per 2 settimane → togli ~150 kcal dai giorni ON (es. −30 g di riso/pasta) o aggiungi una camminata. Cali troppo in fretta o crollano i carichi → rimetti ~150 kcal di carbo. <b>Le proteine non si toccano mai verso il basso.</b></p></div>
+      <p>Pesati 3–4 mattine/sett a digiuno e guarda la <b>media settimanale</b>. Sali di 0,2–0,3 kg/sett → non toccare nulla. Fermo per 2 settimane → aggiungi ~150 kcal ai giorni ON (es. +40 g di riso a pranzo, o +20 g di avena e +10 g di miele a colazione). Sali oltre 0,5 kg/sett dopo le prime 2 settimane → togli ~150 kcal dai giorni OFF. <b>Le proteine non si toccano mai.</b> Verso gennaio-febbraio il mantenimento sarà salito con te: è normale dover ritoccare in su 2-3 volte lungo il blocco.</p></div>
     </div>
 
     <div class="section-title">Note strategiche</div>
     <div class="rules-grid">
-      <div class="rule-card"><span class="rule-icon">🔵</span><span class="rule-text"><strong>Carb cycling</strong>Il taglio del giorno OFF è quasi tutto sui carboidrati. Più carbo quando ti alleni (performance), meno quando riposi (non servono).</span></div>
-      <div class="rule-card"><span class="rule-icon">🟢</span><span class="rule-text"><strong>Proteine ~2 g/kg</strong>~200 g su 95 kg: lo scudo che protegge il muscolo nel deficit. Distribuite su 4–5 pasti per massimizzare la sintesi proteica.</span></div>
-      <div class="rule-card"><span class="rule-icon">🫒</span><span class="rule-text"><strong>Grassi mai sotto 50 g</strong>Servono per testosterone e assorbimento vitamine. Salgono nel giorno OFF a compensare i carbo tagliati.</span></div>
-      <div class="rule-card"><span class="rule-icon">💊</span><span class="rule-text"><strong>Creatina 6 g/die</strong>Tutti i giorni, anche di riposo. Non si cicla: protegge forza e volume muscolare durante il cut.</span></div>
-      <div class="rule-card"><span class="rule-icon">💧</span><span class="rule-text"><strong>Idratazione</strong>3+ litri/die. Nel cut la fame è spesso sete travestita: bevi prima di cedere a uno spuntino extra.</span></div>
-      <div class="rule-card"><span class="rule-icon">🍳</span><span class="rule-text"><strong>Batch cooking domenica</strong>Cuoci 1 kg di pollo + una pentola di riso/pasta in una volta: 3 schiscette pronte, 3 mattine senza pensieri.</span></div>
+      <div class="rule-card"><span class="rule-icon">🔵</span><span class="rule-text"><strong>Carb cycling anche in massa</strong>Più carbo nei giorni ON attorno al workout (performance e glicogeno), meno nei giorni OFF con grassi leggermente su. Il surplus resta, cambia solo dove lo metti.</span></div>
+      <div class="rule-card"><span class="rule-icon">🟢</span><span class="rule-text"><strong>Proteine 2,2-2,5 g/kg</strong>~205-227 g distribuite su 5 pasti: sintesi proteica sempre accesa. In surplus servirebbe anche meno, ma così hai margine nei giorni imperfetti.</span></div>
+      <div class="rule-card"><span class="rule-icon">🫒</span><span class="rule-text"><strong>Grassi 0,75-0,85 g/kg</strong>70-77 g al giorno, mai sotto i 60: ormoni e assorbimento vitamine. Salmone 2×/sett e noci quotidiane coprono gli omega-3.</span></div>
+      <div class="rule-card"><span class="rule-icon">⚖️</span><span class="rule-text"><strong>Surplus piccolo = bulk pulito</strong>La differenza tra massa pulita e "dirty bulk" è tutta qui: +200-300 kcal, non +1000. Oltre un certo ritmo il muscolo non cresce più veloce — cresce solo il grasso, e a primavera lo ripaghi con gli interessi.</span></div>
+      <div class="rule-card"><span class="rule-icon">🍚</span><span class="rule-text"><strong>Prime 2 settimane: bilancia bugiarda</strong>Passando da 2.400 a 3.200+ kcal, glicogeno e acqua ti daranno +1-1,5 kg quasi subito. Non è grasso e non è tutto muscolo: è il serbatoio che si riempie. Non tagliare e non esaltarti — la rotta si legge dalla settimana 3.</span></div>
+      <div class="rule-card"><span class="rule-icon">🍳</span><span class="rule-text"><strong>Batch cooking domenica</strong>Cuoci 1,5 kg di pollo + un pentolone di riso in una volta: 3-4 schiscette pronte. In bulk saltare un pasto per pigrizia è il vero nemico.</span></div>
     </div>
 
     <div class="section-title">Spesa settimanale · Lidl</div>
     <div class="shop-grid">
-      <div class="shop-card"><div class="shop-cat"><b>Carne</b><span>~17 €</span></div><div class="shop-items">Petto di pollo 1,3 kg · macinato bovino 5% 0,5 kg · bresaola</div></div>
-      <div class="shop-card"><div class="shop-cat"><b>Pesce</b><span>~14 €</span></div><div class="shop-items">Tonno al naturale (multipack) · merluzzo surgelato · gamberi surgelati</div></div>
-      <div class="shop-card"><div class="shop-cat"><b>Uova &amp; latticini</b><span>~9 €</span></div><div class="shop-items">Uova (10) · skyr / yogurt greco · fiocchi di latte light</div></div>
-      <div class="shop-card"><div class="shop-cat"><b>Carbo</b><span>~8 €</span></div><div class="shop-items">Avena · riso basmati · pasta · pane · patate · patate dolci</div></div>
-      <div class="shop-card"><div class="shop-cat"><b>Frutta &amp; verdura</b><span>~7 €</span></div><div class="shop-items">Banane · verdure fresche + surgelate · avocado</div></div>
-      <div class="shop-card"><div class="shop-cat"><b>Dispensa</b><span>~4 €</span></div><div class="shop-items">Burro d'arachidi · noci · marmellata light · crackers · olio EVO</div></div>
+      <div class="shop-card"><div class="shop-cat"><b>Carne</b><span>~20 €</span></div><div class="shop-items">Petto di pollo 1,6 kg · macinato bovino 5% 0,7 kg · bresaola</div></div>
+      <div class="shop-card"><div class="shop-cat"><b>Pesce</b><span>~16 €</span></div><div class="shop-items">Tonno al naturale (multipack) · merluzzo surgelato · gamberi surgelati · salmone fresco 2 porzioni</div></div>
+      <div class="shop-card"><div class="shop-cat"><b>Uova &amp; latticini</b><span>~11 €</span></div><div class="shop-items">Uova (12) · skyr / yogurt greco ×6 · fiocchi di latte light ×4</div></div>
+      <div class="shop-card"><div class="shop-cat"><b>Carbo</b><span>~10 €</span></div><div class="shop-items">Avena 1 kg · riso basmati 1,5 kg · pasta 1 kg · pane 1,5 kg · patate 3,5 kg · patate dolci 1,5 kg · gnocchi</div></div>
+      <div class="shop-card"><div class="shop-cat"><b>Frutta &amp; verdura</b><span>~8 €</span></div><div class="shop-items">Banane ×10 · verdure fresche + surgelate · avocado</div></div>
+      <div class="shop-card"><div class="shop-cat"><b>Dispensa</b><span>~5 €</span></div><div class="shop-items">Burro d'arachidi · miele · noci · marmellata · crackers · olio EVO</div></div>
     </div>
-    <div class="budget-bar"><span style="color:var(--muted);font-size:12px">Totale stimato carrello</span><b>~52–58 € / settimana</b></div>
+    <div class="budget-bar"><span style="color:var(--muted);font-size:12px">Totale stimato carrello</span><b>~68–75 € / settimana</b></div>
     <div class="callout">
       <span class="ci">💊</span>
       <div><h4>Integratori — fuori dal budget settimanale</h4>
-      <p>Whey e creatina si comprano ~1 volta al mese e si ammortizzano (una busta dura settimane). Se vuoi risparmiare, le proteine le copri benissimo da pollo, uova, tonno e fiocchi di latte: lo shaker è comodità, non obbligo.</p></div>
+      <p>Whey e creatina (6 g/die, sempre, mai ciclizzata) si comprano ~1 volta al mese e si ammortizzano. Unica aggiunta invernale sensata: la <b>vitamina D</b> — da ottobre a marzo il sole a Milano è un ricordo e quasi tutti ne sono carenti; sentila col medico o il farmacista alla prossima occasione. Tutto il resto (mass gainer, pre-workout esotici) è marketing: il surplus lo fai col carrello qui sopra.</p></div>
     </div>
   </div>
 
 </div>
 
-<div class="footer">Cut Plan 2026 · piano personalizzato · i target sono stime da affinare sull'andamento reale della bilancia</div>
+<div class="footer">Winter Arc 26/27 · bulk pulito 91,5 → 100 · comanda la bilancia: media settimanale, non il singolo giorno</div>
 
 <script>
   function switchTab(id,el){
